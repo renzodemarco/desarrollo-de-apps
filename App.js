@@ -7,7 +7,6 @@ import Home from './src/screens/Home'
 import ProductsByCategory from './src/screens/ProductsByCategory'
 import ProductDetail from './src/screens/ProductDetail'
 import Header from './src/components/Header'
-import colors from './src/utils/colors'
 
 const App = () => {
   const [fontsLoaded] = useFonts(fontsCollection);

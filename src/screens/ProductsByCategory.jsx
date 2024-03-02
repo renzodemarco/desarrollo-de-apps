@@ -1,8 +1,9 @@
-import { FlatList } from 'react-native'
+import { FlatList, StyleSheet, View } from 'react-native'
 import { useEffect, useState } from 'react'
 import products from '../data/products.json'
 import ProductCard from '../components/ProductCard'
 import Search from '../components/Search'
+import colors from '../utils/colors'
 
 const ProductsByCategory = ({ navigation, route }) => {
 
@@ -24,15 +25,21 @@ const ProductsByCategory = ({ navigation, route }) => {
   }, [category, keyword])
 
   return (
-    <>
+    <View style={styles.background}>
       <Search handleKeyword={handleKeyword}/>
       <FlatList
         data={filteredProducts}
         keyExtractor={item => item.id}
         renderItem={({ item }) => <ProductCard item={item} navigation={navigation}/>}
       />
-    </>
+    </View>
   )
 }
 
 export default ProductsByCategory
+
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: colors.background
+  }
+})

@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import products from '../data/products.json'
 import { useEffect, useState } from 'react'
 import fonts from '../utils/fonts'
+import colors from '../utils/colors'
 
 const ProductDetail = ({ route }) => {
 
@@ -14,26 +15,27 @@ const ProductDetail = ({ route }) => {
   }, [itemId])
 
   return (
-    <>
-      <View>
-        <Image
-            style={styles.image}
-            source={{uri:product?.images ? product.images[0] : null}}
-            resizeMode='cover'
-          />
-        <View style={styles.container}>
-          <Text style={styles.title}>{product.title}</Text>
-          <Text style={styles.description}>{product.description}</Text>
-          <Text style={styles.price}>${product.price}</Text>
-        </View>
+    <View style={styles.background}>
+      <Image
+        style={styles.image}
+        source={{ uri: product?.images ? product.images[0] : null }}
+        resizeMode='cover'
+      />
+      <View style={styles.container}>
+        <Text style={styles.title}>{product.title}</Text>
+        <Text style={styles.description}>{product.description}</Text>
+        <Text style={styles.price}>${product.price}</Text>
       </View>
-    </>
+    </View>
   )
 }
 
 export default ProductDetail
 
 const styles = StyleSheet.create({
+  background: {
+    backgroundColor: colors.background
+  },
   image: {
     width: '100%',
     height: 360
