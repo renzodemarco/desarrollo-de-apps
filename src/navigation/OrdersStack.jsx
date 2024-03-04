@@ -1,25 +1,25 @@
 import { StyleSheet } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Cart from '../components/Cart'
 import Header from '../components/Header'
+import Counter from '../components/Counter'
   
 const Stack = createNativeStackNavigator()
 
 const OrdersStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName='Orders'
+      initialRouteName='Contador'
       screenOptions={({ route, navigation }) => {
         return {
           header: () => {
             return <Header
               navigation={navigation}
-              title='Orders' />
+              title='Contador' />
           }
         }
       }}
     >
-      <Stack.Screen name="Orders" component={Cart} />
+      <Stack.Screen name="Contador" component={Counter} />
     </Stack.Navigator>
   )
 }
