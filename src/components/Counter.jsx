@@ -1,21 +1,42 @@
-import { useState } from 'react'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { useSelector, useDispatch } from 'react-redux'
+import { increment, decrement, incrementByAmount } from '../features/counter/counterSlice'
 import fonts from '../utils/fonts'
 import colors from '../utils/colors'
+import { useState } from 'react'
 
 const Counter = () => {
 
-  const [count, setCount] = useState(0)
+  const count = useSelector((state) => state.counter.value)  // Con esto seleccionamos el slice que vamos a utilizar y su valor
+  const dispatch = useDispatch()  // Con esto disparamos las acciones para modificar el valor
+
+  const [inputValue, setInputValue] = useState(0)
+
+  const handleInputChange = (value) => {
+    setInputValue(Number(value));
+  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.counter}>{count}</Text>
-      <Pressable style={styles.button} onPress={()=> setCount(count + 1)} >
-        <Text style={styles.buttonText}>AUMENTAR</Text>
+      <Pressable style={styles.button} onPress={() => dispatch(increment())} >
+        <Text style={styles.buttonText}>AUMENTAR UNO</Text>
       </Pressable>
-      <Pressable style={styles.button} onPress={()=> setCount(count - 1)} >
-        <Text style={styles.buttonText}>DISMINUIR</Text>
+      <Pressable style={styles.button} onPress={() => dispatch(decrement())} >
+        <Text style={styles.buttonText}>DISMINUIR UNO</Text>
       </Pressable>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Número a aumentar"
+          keyboardType="numeric"
+          value={inputValue}
+          onChangeText={handleInputChange}
+        />
+        <Pressable style={styles.button} onPress={() => dispatch(incrementByAmount(inputValue))} >
+          <Text style={styles.buttonText}>AUMENTAR POR NÚMERO</Text>
+        </Pressable>
+      </View>
     </View>
   )
 }
@@ -41,5 +62,13 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontFamily: fonts.RobotoMedium
+  },
+  inputContainer: {
+    alignItems: 'center'
+  },
+  input: {
+    textAlign: 'center',
+    fontSize: 20,
+    padding: 6
   }
 })
