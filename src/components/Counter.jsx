@@ -29,8 +29,7 @@ const Counter = () => {
         <TextInput
           style={styles.input}
           placeholder="Número a aumentar"
-          keyboardType="numeric"
-          value={inputValue}
+          inputMode='numeric'
           onChangeText={handleInputChange}
         />
         <Pressable style={styles.button} onPress={() => dispatch(incrementByAmount(inputValue))} >
