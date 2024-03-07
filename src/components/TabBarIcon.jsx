@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
 import {Entypo} from '@expo/vector-icons'
-import colors from '../utils/colors'
 
 const TabBarIcon = ({ title, icon, focused }) => {
   return (

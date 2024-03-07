@@ -59,9 +59,9 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 15,
     position: 'absolute',
-    right: 20,
-    left: 20,
-    bottom: 20,
+    right: 10,
+    left: 10,
+    bottom: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

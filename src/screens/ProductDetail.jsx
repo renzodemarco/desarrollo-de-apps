@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import products from '../data/products.json'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addProduct } from '../features/cart/cartSlice'
 import fonts from '../utils/fonts'
 import colors from '../utils/colors'
 
@@ -8,6 +10,7 @@ const ProductDetail = ({ route }) => {
 
   const { itemId } = route.params
   const [product, setProduct] = useState({})
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const productFound = products.find(product => product.id === itemId)
@@ -25,6 +28,9 @@ const ProductDetail = ({ route }) => {
         <Text style={styles.title}>{product.title}</Text>
         <Text style={styles.description}>{product.description}</Text>
         <Text style={styles.price}>${product.price}</Text>
+        <Pressable style={styles.button} onPress={()=> dispatch(addProduct(product))}>
+          <Text style={styles.buttonText}>AGREGAR AL CARRITO</Text>
+        </Pressable>
       </View>
     </View>
   )
@@ -38,7 +44,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 360
+    height: 260
   },
   container: {
     alignItems: 'flex-start',
@@ -56,5 +62,16 @@ const styles = StyleSheet.create({
   price: {
     fontFamily: fonts.RobotoBold,
     fontSize: 22
+  },
+  button: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: colors.secondary,
+    alignSelf:'center'
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontFamily: fonts.RobotoMedium
   }
 })
