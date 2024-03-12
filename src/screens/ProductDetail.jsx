@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
-import products from '../data/products.json'
-import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useGetProductQuery } from '../app/services/shop'
 import { addProduct } from '../features/cart/cartSlice'
 import fonts from '../utils/fonts'
 import colors from '../utils/colors'
@@ -9,13 +8,10 @@ import colors from '../utils/colors'
 const ProductDetail = ({ route }) => {
 
   const { itemId } = route.params
-  const [product, setProduct] = useState({})
+  const { data: product, isLoading } = useGetProductQuery(Number(itemId) - 1)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    const productFound = products.find(product => product.id === itemId)
-    setProduct(productFound)
-  }, [itemId])
+  if (isLoading) return <View><Text>Cargando....</Text></View>
 
   return (
     <View style={styles.background}>

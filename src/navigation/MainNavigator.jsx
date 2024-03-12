@@ -42,7 +42,7 @@ const MainNavigator = () => {
           name="OrdersStack" 
           component={OrdersStack}
           options={{
-            tabBarIcon: ({focused})=> <TabBarIcon title='Contador' icon='calculator' focused={focused}/>
+            tabBarIcon: ({focused})=> <TabBarIcon title='Órdenes' icon='list' focused={focused}/>
           }}
         />
 

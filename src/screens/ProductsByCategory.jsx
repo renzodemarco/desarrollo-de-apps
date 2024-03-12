@@ -1,13 +1,14 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { FlatList, StyleSheet, View, Text } from 'react-native'
 import { useEffect, useState } from 'react'
-import products from '../data/products.json'
 import ProductCard from '../components/ProductCard'
 import Search from '../components/Search'
 import colors from '../utils/colors'
+import { useGetProductsByCategoryQuery } from '../app/services/shop' 
 
 const ProductsByCategory = ({ navigation, route }) => {
 
-  const {category} = route.params
+  const { category } = route.params
+  const { data: products, isLoading } = useGetProductsByCategoryQuery(category)
   const [filteredProducts, setFilteredProducts] = useState([])
   const [keyword, setKeyword] = useState("")
 
@@ -16,13 +17,15 @@ const ProductsByCategory = ({ navigation, route }) => {
   }
   
   useEffect(() => {
-    if (category) setFilteredProducts(products.filter(product => product.category === category))
-    if (keyword) setFilteredProducts(filteredProducts.filter(product => {
+    setFilteredProducts(products)
+    if (keyword) setFilteredProducts(products.filter(product => {
       const titleLower = product.title.toLowerCase()
       const keywordLower = keyword.toLowerCase()
       return titleLower.includes(keywordLower)
     }))
-  }, [category, keyword])
+  }, [category, keyword, products])
+
+  if (isLoading) return <View><Text>Cargando....</Text></View>
 
   return (
     <View style={styles.background}>
