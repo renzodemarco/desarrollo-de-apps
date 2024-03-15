@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import colors from '../utils/colors'
 import fonts from '../utils/fonts'
+import { useLoginMutation } from '../app/services/auth'
+import { setUser } from '../features/auth/authSlice'
 
 const Login = ({ navigation }) => {
 
@@ -13,10 +15,11 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState("")
   const [errorEmail, setErrorEmail] = useState("")
   const [errorPassword, setErrorPassword] = useState("")
-  // const [triggerLogin] = useLoginMutation()
+  const [triggerLogin] = useLoginMutation()
 
-  const onSubmit = () => {
-    console.log(email + ' ' + password)
+  const onSubmit = async () => {
+    const { data } = await triggerLogin({email, password})
+    dispatch(setUser({email: data.email, idToken: data.idToken}))
   }
 
   // const onSubmit = async () => {

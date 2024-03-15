@@ -3,9 +3,11 @@ import InputForm from '../components/InputForm'
 import SubmitButton from '../components/SubmitButton'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { setUser } from '../features/auth/authSlice'
+import { useRegisterMutation } from '../app/services/auth'
 import colors from '../utils/colors'
 import fonts from '../utils/fonts'
-import { useRegisterMutation } from '../app/services/auth'
+
 
 const Register = ({ navigation }) => {
 
@@ -18,9 +20,9 @@ const Register = ({ navigation }) => {
   const [errorPassword2, setErrorPassword2] = useState("")
   const [triggerRegister] = useRegisterMutation()  // me traigo el método que creé para registrar usuarios
 
-  const onSubmit = () => {
-    console.log({email, password})
-    triggerRegister({email, password})
+  const onSubmit = async () => {
+    const { data } = await triggerRegister({email, password})  // hago la peticion y espero la respuesta en data
+    dispatch(setUser({email: data.email, idToken: data.idToken}))  // dentro de data tengo el idToken y mail
   }
 
   // const onSubmit = async () => {
