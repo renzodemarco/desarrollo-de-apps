@@ -7,10 +7,11 @@ const Header = ({ title, navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{capitalize(title)}</Text>
-      {navigation.canGoBack() &&       
+      {navigation.canGoBack() ?       
         <Pressable style={styles.back} onPress={() => navigation.goBack()}>
           <AntDesign name='back' size={30} color="#fff" />
         </Pressable>
+        : null
       }
     </View>
   )

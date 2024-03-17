@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
     fontFamily: fonts.RobotoBold
   },
   error: {
-    fontSize: 16,
-    color: "red",
-    fontFamily: fonts.RobotoBold,
-    fontStyle: "italic",
-    marginLeft: 20
+    fontSize: 14,
+    color: '#FFE9A1',
+    fontStyle: 'italic',
+    fontFamily: fonts.RobotoRegular,
+    marginLeft: 10
   }
 })

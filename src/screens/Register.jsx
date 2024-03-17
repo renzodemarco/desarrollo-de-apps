@@ -7,6 +7,7 @@ import { setUser } from '../features/auth/authSlice'
 import { useRegisterMutation } from '../app/services/auth'
 import colors from '../utils/colors'
 import fonts from '../utils/fonts'
+import { registerSchema } from '../utils/validations/authSchema'
 
 
 const Register = ({ navigation }) => {
@@ -14,43 +15,36 @@ const Register = ({ navigation }) => {
   const dispatch = useDispatch()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [password2, setPassword2] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
   const [errorEmail, setErrorEmail] = useState("")
   const [errorPassword, setErrorPassword] = useState("")
-  const [errorPassword2, setErrorPassword2] = useState("")
   const [triggerRegister] = useRegisterMutation()  // me traigo el método que creé para registrar usuarios
 
   const onSubmit = async () => {
-    const { data } = await triggerRegister({email, password})  // hago la peticion y espero la respuesta en data
-    dispatch(setUser({email: data.email, idToken: data.idToken}))  // dentro de data tengo el idToken y mail
+    try {
+      registerSchema.validateSync({ email, password, confirmPassword })  // valido los inputs con YUP
+      const { data } = await triggerRegister({ email, password })  // hago la peticion y espero la respuesta en data
+      dispatch(setUser({ email: data.email, idToken: data.idToken }))  // dentro de data tengo el idToken y mail
+    }
+    catch (error) {
+      setErrorEmail('')
+      setErrorPassword('')
+      
+      switch (error.path) {
+        case "email":
+          setErrorEmail(error.message)
+          break
+        case "password":
+          setErrorPassword(error.message)
+          break
+        case "confirmPassword":
+          setErrorPassword(error.message)
+          break
+        default:
+          break
+      }
+    }
   }
-
-  // const onSubmit = async () => {
-  //   try {
-
-  //     RegisterSchema.validateSync({ email, password })
-  //     const { data } = await triggerRegister({ email, password })
-  //     dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
-
-  //   } catch (error) {
-
-  //     setErrorEmail("")
-  //     setErrorPassword("")
-
-  //     switch (error.path) {
-  //       case "email":
-  //         setErrorEmail(error.message)
-  //         break
-  //       case "password":
-  //         setErrorPassword(error.message)
-  //         break
-  //       default:
-  //         break
-  //     }
-
-  //   }
-
-  // }
 
   return (
     <View style={styles.main}>
@@ -71,10 +65,9 @@ const Register = ({ navigation }) => {
         />
         <InputForm
           label="Repita la contraseña"
-          value={password2}
-          onChangeText={(t) => setPassword2(t)}
+          value={confirmPassword}
+          onChangeText={(t) => setConfirmPassword(t)}
           isSecure={true}
-          error={errorPassword2}
         />
         <SubmitButton onPress={onSubmit} title="Registrarse" />
         <Pressable onPress={() => navigation.navigate("Login")} >

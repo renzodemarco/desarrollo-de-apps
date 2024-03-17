@@ -22,32 +22,7 @@ const Login = ({ navigation }) => {
     dispatch(setUser({email: data.email, idToken: data.idToken}))
   }
 
-  // const onSubmit = async () => {
-  //   try {
-
-  //     loginSchema.validateSync({ email, password })
-  //     const { data } = await triggerLogin({ email, password })
-  //     dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
-
-  //   } catch (error) {
-
-  //     setErrorEmail("")
-  //     setErrorPassword("")
-
-  //     switch (error.path) {
-  //       case "email":
-  //         setErrorEmail(error.message)
-  //         break
-  //       case "password":
-  //         setErrorPassword(error.message)
-  //         break
-  //       default:
-  //         break
-  //     }
-
-  //   }
-
-  // }
+  // FALTA HACER LAS VALIDACIONES PARA EL LOGIN!!
 
   return (
     <View style={styles.main}>

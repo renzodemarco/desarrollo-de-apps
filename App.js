@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Provider store={store}> {/*  Envolvemos en el Provider todo lo que queremos que tenga acceso al store*/}
+      <Provider store={store}>
         <MainNavigator/>
       </Provider>
       <StatusBar hidden={true} />
