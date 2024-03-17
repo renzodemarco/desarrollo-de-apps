@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { shopApi } from './services/shop'
+import { authApi } from './services/auth'
 import cartReducer from '../features/cart/cartSlice'
 import authReducer from '../features/auth/authSlice'
-import { authApi } from './services/auth'
+
 
 export const store = configureStore({
   reducer: {

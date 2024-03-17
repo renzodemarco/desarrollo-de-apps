@@ -1,23 +1,24 @@
-import { StatusBar, View, StyleSheet } from 'react-native'
+import { StatusBar, View, StyleSheet, Text } from 'react-native'
 import { useFonts } from "expo-font"
 import { fontsCollection } from './src/utils/fonts'
 import MainNavigator from './src/navigation/MainNavigator'
 import { store } from './src/app/store'
 import { Provider } from 'react-redux'
+import CategoryCard from './src/components/CategoryCard'
 
 const App = () => {
   const [fontsLoaded] = useFonts(fontsCollection);
 
-  if (!fontsLoaded) return null;
+  if (!fontsLoaded) return null
 
   return (
     <View style={styles.container}>
-      <Provider store={store}> {/* Envolvemos en el Provider todo lo que queremos que tenga acceso al store*/}
-        <MainNavigator />
+      <Provider store={store}> {/*  Envolvemos en el Provider todo lo que queremos que tenga acceso al store*/}
+        <MainNavigator/>
       </Provider>
       <StatusBar hidden={true} />
     </View>
-  );
+  )
 }
 
 export default App

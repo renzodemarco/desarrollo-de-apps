@@ -7,7 +7,8 @@ export const shopApi = createApi({
     getProductsByCategory: builder.query({
       query: (category) => `/products.json?orderBy="category"&equalTo="${category}"`,  // configuramos los query para que vengan solo los productos de la categoría buscada
       transformResponse: (response) => {
-        return Object.values(response)  // con esto transformamos la respuesta en un array
+        const data = Object.values(response)  // con esto transformamos la respuesta en un array
+        return data
       }
     }),
     getCategories: builder.query({
