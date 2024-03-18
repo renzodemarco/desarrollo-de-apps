@@ -20,6 +20,10 @@ const Profile = ({ navigation }) => {
         title={data ? "Cambiar imagen de perfil" : "Agregar Imagen de perfil"}
         onPress={() => navigation.navigate('ImageSelector')}
       />
+      <AddButton
+        title="Agregar localización"
+        onPress={() => navigation.navigate('LocationSelector')}
+      />
     </View>
   )
 }
