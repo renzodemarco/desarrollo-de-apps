@@ -24,7 +24,7 @@ const Register = ({ navigation }) => {
     try {
       registerSchema.validateSync({ email, password, confirmPassword })  // valido los inputs con YUP
       const { data } = await triggerRegister({ email, password })  // hago la peticion y espero la respuesta en data
-      dispatch(setUser({ email: data.email, idToken: data.idToken }))  // dentro de data tengo el idToken y mail
+      dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))  // dentro de data tengo el idToken y mail
     }
     catch (error) {
       setErrorEmail('')

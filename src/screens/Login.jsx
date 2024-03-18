@@ -18,8 +18,8 @@ const Login = ({ navigation }) => {
   const [triggerLogin] = useLoginMutation()
 
   const onSubmit = async () => {
-    const { data } = await triggerLogin({email, password})
-    dispatch(setUser({email: data.email, idToken: data.idToken}))
+    const { data } = await triggerLogin({ email, password })
+    dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
   }
 
   // FALTA HACER LAS VALIDACIONES PARA EL LOGIN!!
