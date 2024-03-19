@@ -7,6 +7,7 @@ import colors from '../utils/colors'
 import fonts from '../utils/fonts'
 import { useLoginMutation } from '../app/services/auth'
 import { setUser } from '../features/auth/authSlice'
+import { loginSchema } from '../utils/validations/authSchema'
 
 const Login = ({ navigation }) => {
 
@@ -18,11 +19,29 @@ const Login = ({ navigation }) => {
   const [triggerLogin] = useLoginMutation()
 
   const onSubmit = async () => {
-    const { data } = await triggerLogin({ email, password })
-    dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
-  }
+    try {
+      loginSchema.validateSync({ email, password })
+      const { data } = await triggerLogin({ email, password })
+      dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
+    }
+    catch (error) {
+      setErrorEmail('')
+      setErrorPassword('')
 
-  // FALTA HACER LAS VALIDACIONES PARA EL LOGIN!!
+      if (!error.path) setErrorEmail('Email o contraseña inválidos')
+
+      switch (error.path) {
+        case "email":
+          setErrorEmail(error.message)
+          break
+        case "password":
+          setErrorPassword(error.message)
+          break
+        default:
+          break
+      }
+    }
+  }
 
   return (
     <View style={styles.main}>
