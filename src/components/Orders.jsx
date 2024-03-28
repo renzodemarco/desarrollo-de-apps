@@ -4,14 +4,14 @@ import fonts from '../utils/fonts'
 import { useSelector } from 'react-redux'
 import { useGetOrdersQuery } from '../app/services/orders'
 
-const Orders = () => {
+const Orders = ({ navigation }) => {
 
   const localId = useSelector(state => state.auth.localId)
   const { data: orders } = useGetOrdersQuery(localId)
 
   return (
     <>
-      {orders?.length > 0 ? 
+      {orders?.length > 0 ?
         <FlatList
           data={orders}
           keyExtractor={item => item.id}
@@ -20,9 +20,9 @@ const Orders = () => {
         :
         <View style={styles.container}>
           <Text style={styles.text}>No has hecho ninguna orden.</Text>
-        </View> 
-        }
-      </>
+        </View>
+      }
+    </>
   )
 }
 

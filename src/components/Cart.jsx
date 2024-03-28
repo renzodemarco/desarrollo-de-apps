@@ -6,7 +6,7 @@ import { usePostOrderMutation } from '../app/services/orders'
 import { deleteCart } from '../features/cart/cartSlice'
 import fonts from '../utils/fonts'
 
-const Cart = () => {
+const Cart = ({ navigation }) => {
 
   const localId = useSelector(state => state.auth.localId)
   const cart = useSelector(state => state.cart)
