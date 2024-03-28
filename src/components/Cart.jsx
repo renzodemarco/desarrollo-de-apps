@@ -1,11 +1,30 @@
 import { FlatList, StyleSheet, View, Text } from 'react-native'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CartItem from './CartItem'
+import SubmitButton from './SubmitButton'
+import { usePostOrderMutation } from '../app/services/orders'
+import { deleteCart } from '../features/cart/cartSlice'
 import fonts from '../utils/fonts'
 
 const Cart = () => {
 
-  const cart = useSelector((state) => state.cart)
+  const localId = useSelector(state => state.auth.localId)
+  const cart = useSelector(state => state.cart)
+  const [triggerPostOrder] = usePostOrderMutation()
+  const dispatch = useDispatch()
+
+  const handleAddOrder = async () => {
+    const createdAt = new Date().toLocaleString()
+    const order = {
+      createdAt,
+      ...cart
+    }
+    const response = await triggerPostOrder({ order, localId })
+    if (response.data) {
+      console.log(`Orden ${response.data.name} realizada con éxito`)
+      dispatch(deleteCart())
+    }
+  }
 
   return (
     <>
@@ -24,6 +43,10 @@ const Cart = () => {
             </View>
             <View style={styles.container}>
               <Text style={styles.text}>Total: ${cart.total}</Text>
+              <SubmitButton
+                title="Comprar"
+                onPress={handleAddOrder}
+              />
             </View>
           </>
       }

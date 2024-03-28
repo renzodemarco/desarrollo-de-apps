@@ -1,12 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
+import OrderItem from './OrderItem'
 import fonts from '../utils/fonts'
+import { useSelector } from 'react-redux'
+import { useGetOrdersQuery } from '../app/services/orders'
 
 const Orders = () => {
+
+  const localId = useSelector(state => state.auth.localId)
+  const { data: orders } = useGetOrdersQuery(localId)
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>No has hecho ninguna orden.</Text>
-    </View>
+    <>
+      {orders?.length > 0 ? 
+        <FlatList
+          data={orders}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => <OrderItem order={item} navigation={navigation} />}
+        />
+        :
+        <View style={styles.container}>
+          <Text style={styles.text}>No has hecho ninguna orden.</Text>
+        </View> 
+        }
+      </>
   )
 }
 
