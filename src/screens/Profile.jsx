@@ -4,6 +4,7 @@ import fonts from '../utils/fonts'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetImageQuery, useGetLocationQuery } from '../app/services/profile'
 import { clearUser } from '../features/auth/authSlice'
+import { deleteSession } from '../database'
 
 const Profile = ({ navigation }) => {
 
@@ -11,6 +12,11 @@ const Profile = ({ navigation }) => {
   const { data: imageData } = useGetImageQuery(localId)
   const { data: locationData } = useGetLocationQuery(localId)
   const dispatch = useDispatch()
+
+  const handleLogout = async () => {
+    await deleteSession()
+    dispatch(clearUser())
+  }
 
   return (
     <View style={styles.container}>
@@ -30,7 +36,7 @@ const Profile = ({ navigation }) => {
       />
       <AddButton
         title={"Cerrar sesión"}
-        onPress={() => dispatch(clearUser())}
+        onPress={handleLogout}
       />
     </View>
   )
