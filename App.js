@@ -1,10 +1,13 @@
-import { StatusBar, View, StyleSheet, Text } from 'react-native'
+import { StatusBar, View, StyleSheet } from 'react-native'
 import { useFonts } from "expo-font"
 import { fontsCollection } from './src/utils/fonts'
 import MainNavigator from './src/navigation/MainNavigator'
 import { store } from './src/app/store'
 import { Provider } from 'react-redux'
-import CategoryCard from './src/components/CategoryCard'
+import { init } from './src/database'
+
+
+init()
 
 const App = () => {
   const [fontsLoaded] = useFonts(fontsCollection);
@@ -14,7 +17,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Provider store={store}>
-        <MainNavigator/>
+        <MainNavigator />
       </Provider>
       <StatusBar hidden={true} />
     </View>

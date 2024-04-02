@@ -8,6 +8,7 @@ import { useRegisterMutation } from '../app/services/auth'
 import colors from '../utils/colors'
 import fonts from '../utils/fonts'
 import { registerSchema } from '../utils/validations/authSchema'
+import { insertSession } from '../database'
 
 
 const Register = ({ navigation }) => {
@@ -24,6 +25,7 @@ const Register = ({ navigation }) => {
     try {
       registerSchema.validateSync({ email, password, confirmPassword })  // valido los inputs con YUP
       const { data } = await triggerRegister({ email, password })  // hago la peticion y espero la respuesta en data
+      const user = await insertSession(data)
       dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))  // dentro de data tengo el idToken y mail
     }
     catch (error) {

@@ -8,6 +8,7 @@ import fonts from '../utils/fonts'
 import { useLoginMutation } from '../app/services/auth'
 import { setUser } from '../features/auth/authSlice'
 import { loginSchema } from '../utils/validations/authSchema'
+import { insertSession } from '../database'
 
 const Login = ({ navigation }) => {
 
@@ -21,14 +22,18 @@ const Login = ({ navigation }) => {
   const onSubmit = async () => {
     try {
       loginSchema.validateSync({ email, password })
-      const { data } = await triggerLogin({ email, password })
+      const login = await triggerLogin({ email, password })
+      if (login.error) return setErrorEmail('Email o contraseña inválidos')
+      const data = login.data
+      const user = await insertSession(data)
+      console.log(user)
       dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
     }
     catch (error) {
       setErrorEmail('')
       setErrorPassword('')
 
-      if (!error.path) setErrorEmail('Email o contraseña inválidos')
+      console.log(error)
 
       switch (error.path) {
         case "email":
