@@ -25,15 +25,12 @@ const Login = ({ navigation }) => {
       const login = await triggerLogin({ email, password })
       if (login.error) return setErrorEmail('Email o contraseña inválidos')
       const data = login.data
-      const user = await insertSession(data)
-      console.log(user)
+      await insertSession({ email: data.email, idToken: data.idToken, localId: data.localId })
       dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
     }
     catch (error) {
       setErrorEmail('')
       setErrorPassword('')
-
-      console.log(error)
 
       switch (error.path) {
         case "email":

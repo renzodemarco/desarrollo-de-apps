@@ -6,7 +6,6 @@ import { store } from './src/app/store'
 import { Provider } from 'react-redux'
 import { init } from './src/database'
 
-
 init()
 
 const App = () => {

@@ -1,15 +1,16 @@
 import { StyleSheet, View, Image, Text } from 'react-native'
-import { useEffect } from 'react'
 import AddButton from '../components/AddButton'
 import fonts from '../utils/fonts'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useGetImageQuery, useGetLocationQuery } from '../app/services/profile'
+import { clearUser } from '../features/auth/authSlice'
 
 const Profile = ({ navigation }) => {
 
   const localId = useSelector(state => state.auth.localId)
   const { data: imageData } = useGetImageQuery(localId)
   const { data: locationData } = useGetLocationQuery(localId)
+  const dispatch = useDispatch()
 
   return (
     <View style={styles.container}>
@@ -26,6 +27,10 @@ const Profile = ({ navigation }) => {
       <AddButton
         title={locationData ? "Cambiar localización" : "Agregar localización"}
         onPress={() => navigation.navigate('LocationSelector')}
+      />
+      <AddButton
+        title={"Cerrar sesión"}
+        onPress={() => dispatch(clearUser())}
       />
     </View>
   )
