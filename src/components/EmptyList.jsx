@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
+import fonts from '../utils/fonts'
 
 const EmptyList = ({ message }) => {
 
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
     textAlign: 'center',
+    fontFamily: fonts.RobotoBold
   },
 })
 

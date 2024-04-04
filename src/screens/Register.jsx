@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import InputForm from '../components/InputForm'
 import ButtonPrimary from '../components/ButtonPrimary'
+import ModalAlert from '../components/ModalAlert'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { clearUser, setUser } from '../features/auth/authSlice'
+import { setUser } from '../features/auth/authSlice'
 import { useRegisterMutation } from '../app/services/auth'
 import colors from '../utils/colors'
 import fonts from '../utils/fonts'
@@ -20,18 +21,22 @@ const Register = ({ navigation }) => {
   const [errorEmail, setErrorEmail] = useState("")
   const [errorPassword, setErrorPassword] = useState("")
   const [triggerRegister] = useRegisterMutation()  // me traigo el método que creé para registrar usuarios
+  const [modalVisible, setModalVisible] = useState(false)
 
   const onSubmit = async () => {
     try {
       registerSchema.validateSync({ email, password, confirmPassword })  // valido los inputs con YUP
       const { data } = await triggerRegister({ email, password })  // hago la peticion y espero la respuesta en data
       await insertSession(data)
-      dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
+      setModalVisible(true)
+      setTimeout(() => {
+        dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
+      }, 2000) 
     }
     catch (error) {
       setErrorEmail('')
       setErrorPassword('')
-      
+
       switch (error.path) {
         case "email":
           setErrorEmail(error.message)
@@ -76,6 +81,10 @@ const Register = ({ navigation }) => {
           <Text style={styles.sub}>Ya tengo una cuenta</Text>
         </Pressable>
       </View>
+      <ModalAlert
+        text='Se ha registrado el usuario correctamente'
+        modalVisible={modalVisible}
+      />
     </View>
   )
 }

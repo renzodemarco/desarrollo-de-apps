@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import OrderItem from '../components/OrderItem'
+import EmptyList from '../components/EmptyList'
 import fonts from '../utils/fonts'
 import { useSelector } from 'react-redux'
 import { useGetOrdersQuery } from '../app/services/orders'
@@ -11,33 +12,17 @@ const Orders = ({ navigation }) => {
 
   return (
     <>
-      {orders?.length > 0 ?
+      {orders?.length == 0 ?
+        <EmptyList message="Aún no has hecho ninguna orden." />
+        :
         <FlatList
           data={orders}
           keyExtractor={item => item.id}
           renderItem={({ item }) => <OrderItem order={item} navigation={navigation} />}
         />
-        :
-        <View style={styles.container}>
-          <Text style={styles.text}>No has hecho ninguna orden.</Text>
-        </View>
       }
     </>
   )
 }
 
 export default Orders
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    margin: 20
-  },
-  text: {
-    fontFamily: fonts.RobotoBold,
-    fontSize: 20
-  },
-  listContainer: {
-    height: 400
-  }
-})

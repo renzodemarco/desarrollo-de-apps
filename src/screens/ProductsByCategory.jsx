@@ -1,6 +1,9 @@
 import { FlatList, StyleSheet, View, Text } from 'react-native'
 import { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
+import LoadingSpinner from '../components/LoadingSpinner'
+import Error from '../components/Error'
+import EmptyList from '../components/EmptyList'
 import Search from '../components/Search'
 import colors from '../utils/colors'
 import { useGetProductsByCategoryQuery } from '../app/services/shop' 
@@ -8,7 +11,7 @@ import { useGetProductsByCategoryQuery } from '../app/services/shop'
 const ProductsByCategory = ({ navigation, route }) => {
 
   const { category } = route.params
-  const { data: products, isLoading } = useGetProductsByCategoryQuery(category)
+  const { data: products, isLoading, isError, isSuccess } = useGetProductsByCategoryQuery(category)
   const [filteredProducts, setFilteredProducts] = useState([])
   const [keyword, setKeyword] = useState("")
 
@@ -25,7 +28,15 @@ const ProductsByCategory = ({ navigation, route }) => {
     }))
   }, [category, keyword, products])
 
-  if (isLoading) return <View><Text>Cargando....</Text></View>
+  if (isLoading) return <LoadingSpinner />
+
+  if (isError) return <Error
+    message="Lo lamentamos, algo salió mal."
+    textButton="Volver"
+    onRetry={() => navigation.goBack()}
+  />
+
+  if (isSuccess && category === null) return <EmptyList message="No hay productos en esta categoría." />
 
   return (
     <View style={styles.background}>

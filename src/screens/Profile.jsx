@@ -1,5 +1,7 @@
 import { StyleSheet, View, Image, Text } from 'react-native'
+import { useState } from 'react'
 import AddButton from '../components/ButtonPrimary'
+import ModalConfirm from '../components/ModalConfirm'
 import fonts from '../utils/fonts'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetImageQuery, useGetLocationQuery } from '../app/services/profile'
@@ -12,6 +14,11 @@ const Profile = ({ navigation }) => {
   const { data: imageData } = useGetImageQuery(localId)
   const { data: locationData } = useGetLocationQuery(localId)
   const dispatch = useDispatch()
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const handleCloseModal = () => {
+    setModalVisible(false)
+  }
 
   const handleLogout = async () => {
     await deleteSession()
@@ -36,7 +43,13 @@ const Profile = ({ navigation }) => {
       />
       <AddButton
         title={"Cerrar sesión"}
-        onPress={handleLogout}
+        onPress={() => setModalVisible(true)}
+      />
+      <ModalConfirm
+        text="¿Desea cerrar sesión?"
+        modalVisible={modalVisible}
+        onClose={handleCloseModal}
+        onConfirm={handleLogout}
       />
     </View>
   )

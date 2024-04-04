@@ -1,27 +1,29 @@
-import { View, Modal, Text } from 'react-native'
+import { View, Modal, Text, StyleSheet } from 'react-native'
 import ButtonPrimary from './ButtonPrimary'
 import colors from '../utils/colors'
+import fonts from '../utils/fonts'
 
-const ModalMessage = ({ text, textButton, onclose, modalVisible }) => {
+const ModalConfirm = ({ text, onConfirm, onClose, modalVisible }) => {
 
   return (
     <Modal
       visible={modalVisible}
       transparent={true}
       animationType='fade'
-      onRequestClose={onclose}
+      onRequestClose={onClose}
     >
       <View style={styles.container}>
         <View style={styles.content}>
           <Text style={styles.text}>{text}</Text>
-          <ButtonPrimary title={textButton} onPress={onclose} />
+          <ButtonPrimary title='Aceptar' onPress={onConfirm} />
+          <ButtonPrimary title='Cancelar' onPress={onClose} />
         </View>
       </View>
     </Modal>
   )
 }
 
-export default ModalMessage
+export default ModalConfirm
 
 const styles = StyleSheet.create({
   container: {
@@ -31,10 +33,10 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   content: {
-    width: "90%",
+    width: "80%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
     padding: 30,
     gap: 20,
     borderRadius: 5
@@ -42,7 +44,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: "white",
-    fontFamily: fonts.JosefinSansBold
+    fontFamily: fonts.RobotoMedium
   }
-
 })

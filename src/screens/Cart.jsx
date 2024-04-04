@@ -1,7 +1,10 @@
 import { FlatList, StyleSheet, View, Text } from 'react-native'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 import ButtonPrimary from '../components/ButtonPrimary'
+import EmptyList from '../components/EmptyList'
+import ModalConfirm from '../components/ModalConfirm'
 import { usePostOrderMutation } from '../app/services/orders'
 import { deleteCart } from '../features/cart/cartSlice'
 import fonts from '../utils/fonts'
@@ -12,6 +15,11 @@ const Cart = ({ navigation }) => {
   const cart = useSelector(state => state.cart)
   const [triggerPostOrder] = usePostOrderMutation()
   const dispatch = useDispatch()
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const handleCloseModal = () => {
+    setModalVisible(false)
+  }
 
   const handleAddOrder = async () => {
     const createdAt = new Date().toLocaleString()
@@ -21,7 +29,6 @@ const Cart = ({ navigation }) => {
     }
     const response = await triggerPostOrder({ order, localId })
     if (response.data) {
-      console.log(`Orden ${response.data.name} realizada con éxito`)
       dispatch(deleteCart())
       navigation.navigate("OrdersStack")
     }
@@ -31,9 +38,7 @@ const Cart = ({ navigation }) => {
     <>
       {
         (cart.items.length == 0) ?
-          <View style={styles.container}>
-            <Text style={styles.text}>El carrito está vacío.</Text>
-          </View> :
+          <EmptyList message='El carrito está vacío.' /> :
           <>
             <View style={styles.listContainer}>
               <FlatList
@@ -46,9 +51,15 @@ const Cart = ({ navigation }) => {
               <Text style={styles.text}>Total: ${cart.total}</Text>
               <ButtonPrimary
                 title="Comprar"
-                onPress={handleAddOrder}
+                onPress={() => setModalVisible(true)}
               />
             </View>
+            <ModalConfirm
+              text="¿Desea realizar esta compra?"
+              modalVisible={modalVisible}
+              onClose={handleCloseModal}
+              onConfirm={handleAddOrder}
+            />
           </>
       }
     </>
