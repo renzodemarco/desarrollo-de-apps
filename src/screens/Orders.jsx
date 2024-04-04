@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import OrderItem from './OrderItem'
+import OrderItem from '../components/OrderItem'
 import fonts from '../utils/fonts'
 import { useSelector } from 'react-redux'
 import { useGetOrdersQuery } from '../app/services/orders'

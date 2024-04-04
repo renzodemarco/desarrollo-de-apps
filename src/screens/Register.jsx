@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import InputForm from '../components/InputForm'
-import SubmitButton from '../components/SubmitButton'
+import ButtonPrimary from '../components/ButtonPrimary'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { clearUser, setUser } from '../features/auth/authSlice'
@@ -71,7 +71,7 @@ const Register = ({ navigation }) => {
           onChangeText={(t) => setConfirmPassword(t)}
           isSecure={true}
         />
-        <SubmitButton onPress={onSubmit} title="Registrarse" />
+        <ButtonPrimary onPress={onSubmit} title="Registrarse" />
         <Pressable onPress={() => navigation.navigate("Login")} >
           <Text style={styles.sub}>Ya tengo una cuenta</Text>
         </Pressable>

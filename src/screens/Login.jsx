@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import InputForm from '../components/InputForm'
-import SubmitButton from '../components/SubmitButton'
+import ButtonPrimary from '../components/ButtonPrimary'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import colors from '../utils/colors'
@@ -62,7 +62,7 @@ const Login = ({ navigation }) => {
           isSecure={true}
           error={errorPassword}
         />
-        <SubmitButton onPress={onSubmit} title="Iniciar Sesión" />
+        <ButtonPrimary onPress={onSubmit} title="Iniciar Sesión" />
         <Pressable onPress={() => navigation.navigate("Register")} >
           <Text style={styles.sub}>No tengo una cuenta</Text>
         </Pressable>

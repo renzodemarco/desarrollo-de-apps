@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { useState, useEffect } from 'react'
 import MapPreview from '../components/MapPreview'
-import AddButton from '../components/AddButton'
+import ButtonPrimary from '../components/ButtonPrimary'
 import { useSelector } from 'react-redux'
 import * as Location from 'expo-location'
 import { usePutLocationMutation } from '../app/services/profile'
@@ -51,7 +51,7 @@ const LocationSelector = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.text}>{address}</Text>
       <MapPreview latitude={location.latitude} longitude={location.longitude} />
-      <AddButton title="Confirmar Localizacion" onPress={onConfirmAddress} />
+      <ButtonPrimary title="Confirmar Localizacion" onPress={onConfirmAddress} />
     </View>
   )
 }

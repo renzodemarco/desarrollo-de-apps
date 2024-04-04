@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { StyleSheet, Image, View } from 'react-native'
 import * as ImagePicker from 'expo-image-picker';
-import AddButton from '../components/AddButton'
+import ButtonPrimary from '../components/ButtonPrimary'
 import { useGetImageQuery, usePutImageMutation } from '../app/services/profile';
 import { useSelector } from 'react-redux';
 
@@ -48,8 +48,8 @@ const ImageSelector = ({ navigation }) => {
         resizeMode='cover'
 
       />
-      <AddButton title="Tomar foto" onPress={pickImage} />
-      <AddButton title="Confirm photo" onPress={confirmImage} />
+      <ButtonPrimary title="Tomar foto" onPress={pickImage} />
+      <ButtonPrimary title="Confirm photo" onPress={confirmImage} />
     </View>
   )
 }

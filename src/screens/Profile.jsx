@@ -1,5 +1,5 @@
 import { StyleSheet, View, Image, Text } from 'react-native'
-import AddButton from '../components/AddButton'
+import AddButton from '../components/ButtonPrimary'
 import fonts from '../utils/fonts'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetImageQuery, useGetLocationQuery } from '../app/services/profile'

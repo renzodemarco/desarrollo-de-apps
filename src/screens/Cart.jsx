@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, View, Text } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
-import CartItem from './CartItem'
-import SubmitButton from './SubmitButton'
+import CartItem from '../components/CartItem'
+import ButtonPrimary from '../components/ButtonPrimary'
 import { usePostOrderMutation } from '../app/services/orders'
 import { deleteCart } from '../features/cart/cartSlice'
 import fonts from '../utils/fonts'
@@ -23,6 +23,7 @@ const Cart = ({ navigation }) => {
     if (response.data) {
       console.log(`Orden ${response.data.name} realizada con éxito`)
       dispatch(deleteCart())
+      navigation.navigate("OrdersStack")
     }
   }
 
@@ -43,7 +44,7 @@ const Cart = ({ navigation }) => {
             </View>
             <View style={styles.container}>
               <Text style={styles.text}>Total: ${cart.total}</Text>
-              <SubmitButton
+              <ButtonPrimary
                 title="Comprar"
                 onPress={handleAddOrder}
               />

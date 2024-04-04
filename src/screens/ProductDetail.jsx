@@ -2,16 +2,27 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useGetProductQuery } from '../app/services/shop'
 import { addProduct } from '../features/cart/cartSlice'
+import LoadingSpinner from '../components/LoadingSpinner'
+import Error from '../components/Error'
+import EmptyList from '../components/EmptyList'
 import fonts from '../utils/fonts'
 import colors from '../utils/colors'
 
 const ProductDetail = ({ route }) => {
 
   const { itemId } = route.params
-  const { data: product, isLoading } = useGetProductQuery(Number(itemId) - 1)
+  const { data: product, isLoading, isError, isSuccess } = useGetProductQuery(Number(itemId) - 1)
   const dispatch = useDispatch()
 
-  if (isLoading) return <View><Text>Cargando....</Text></View>
+  if (isLoading) return <LoadingSpinner />
+
+  if (isError) return <Error 
+                        message="Lo lamentamos, algo salió mal." 
+                        textButton="Volver" 
+                        onRetry={() => navigation.goBack()} 
+                        />
+
+  if (isSuccess && product === null) return <EmptyList message="Producto no disponible" />
 
   return (
     <View style={styles.background}>
@@ -24,7 +35,7 @@ const ProductDetail = ({ route }) => {
         <Text style={styles.title}>{product.title}</Text>
         <Text style={styles.description}>{product.description}</Text>
         <Text style={styles.price}>${product.price}</Text>
-        <Pressable style={styles.button} onPress={()=> dispatch(addProduct(product))}>
+        <Pressable style={styles.button} onPress={() => dispatch(addProduct(product))}>
           <Text style={styles.buttonText}>AGREGAR AL CARRITO</Text>
         </Pressable>
       </View>
@@ -63,7 +74,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     backgroundColor: colors.secondary,
-    alignSelf:'center'
+    alignSelf: 'center'
   },
   buttonText: {
     color: '#fff',
