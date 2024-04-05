@@ -63,11 +63,8 @@ const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: '#fff',
     height: 60,
-    borderRadius: 15,
     position: 'absolute',
-    right: 10,
-    left: 10,
-    bottom: 10,
+    bottom: 0,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

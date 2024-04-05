@@ -6,7 +6,7 @@ import fonts from '../utils/fonts'
 const ProductCard = ({ item, navigation }) => {
   return (
     <Pressable style={styles.container} onPress={() => navigation.navigate("ProductDetail", {itemId: item.id, title: item.title})}>
-      <Text style={styles.text}>{item.id} {item.title}</Text>
+      <Text style={styles.text}>{item.title} - {item.artist}</Text>
       <Image style={styles.image} source={{ uri: item.thumbnail }} resizeMode="cover" />
     </Pressable>
   )

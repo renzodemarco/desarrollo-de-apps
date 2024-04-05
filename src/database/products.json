@@ -1,0 +1,615 @@
+[
+  {
+    "artist": "The Beatles",
+    "category": "rock",
+    "description": "Álbum de estudio de The Beatles, lanzado en 1969.",
+    "id": "1",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg"
+    ],
+    "price": 15.99,
+    "stock": 100,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "title": "Abbey Road"
+  },
+  {
+    "artist": "Michael Jackson",
+    "category": "pop",
+    "description": "Álbum de estudio de Michael Jackson, lanzado en 1982.",
+    "id": "2",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png"
+    ],
+    "price": 12.99,
+    "stock": 80,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png",
+    "title": "Thriller"
+  },
+  {
+    "artist": "Eminem",
+    "category": "hip-hop",
+    "description": "Segundo álbum de estudio de Eminem, lanzado en 2000.",
+    "id": "3",
+    "images": [
+      "https://www.rollingstone.com/wp-content/uploads/2018/06/rs-146432-6b725a8c7cad1a0414c5a33f06299e9d2730ae2e.jpg"
+    ],
+    "price": 14.99,
+    "stock": 70,
+    "thumbnail": "https://www.rollingstone.com/wp-content/uploads/2018/06/rs-146432-6b725a8c7cad1a0414c5a33f06299e9d2730ae2e.jpg",
+    "title": "The Marshall Mathers LP"
+  },
+  {
+    "artist": "Miles Davis",
+    "category": "jazz",
+    "description": "Álbum de estudio de Miles Davis, lanzado en 1959.",
+    "id": "4",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/9/9c/MilesDavisKindofBlue.jpg"
+    ],
+    "price": 17.99,
+    "stock": 90,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/9c/MilesDavisKindofBlue.jpg",
+    "title": "Kind of Blue"
+  },
+  {
+    "artist": "Daft Punk",
+    "category": "electro",
+    "description": "Álbum de estudio de Daft Punk, lanzado en 2013.",
+    "id": "5",
+    "images": [
+      "https://i.scdn.co/image/ab67616d0000b2739b9b36b0e22870b9f542d937"
+    ],
+    "price": 19.99,
+    "stock": 85,
+    "thumbnail": "https://i.scdn.co/image/ab67616d0000b2739b9b36b0e22870b9f542d937",
+    "title": "Random Access Memories"
+  },
+  {
+    "artist": "Pink Floyd",
+    "category": "rock",
+    "description": "Álbum de estudio de Pink Floyd, lanzado en 1973.",
+    "id": "6",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png"
+    ],
+    "price": 16.99,
+    "stock": 95,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "title": "The Dark Side of the Moon"
+  },
+  {
+    "artist": "Madonna",
+    "category": "pop",
+    "description": "Álbum de estudio de Madonna, lanzado en 1989.",
+    "id": "7",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/0/08/Madonna_-_Like_a_Prayer_album.png"
+    ],
+    "price": 13.99,
+    "stock": 75,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/0/08/Madonna_-_Like_a_Prayer_album.png",
+    "title": "Like a Prayer"
+  },
+  {
+    "artist": "Kendrick Lamar",
+    "category": "hip-hop",
+    "description": "Segundo álbum de estudio de Kendrick Lamar, lanzado en 2012.",
+    "id": "8",
+    "images": [
+      "https://static.qobuz.com/images/covers/50/39/0060253743950_600.jpg"
+    ],
+    "price": 18.99,
+    "stock": 65,
+    "thumbnail": "https://static.qobuz.com/images/covers/50/39/0060253743950_600.jpg",
+    "title": "Good Kid, M.A.A.D City"
+  },
+  {
+    "artist": "John Coltrane",
+    "category": "jazz",
+    "description": "Álbum de estudio de John Coltrane, lanzado en 1965.",
+    "id": "9",
+    "images": [
+      "https://dcdn.mitiendanube.com/stores/115/704/products/a-love-supreme11-54ada4b436311545c516008860439524-640-0.jpg"
+    ],
+    "price": 20.99,
+    "stock": 88,
+    "thumbnail": "https://dcdn.mitiendanube.com/stores/115/704/products/a-love-supreme11-54ada4b436311545c516008860439524-640-0.jpg",
+    "title": "A Love Supreme"
+  },
+  {
+    "artist": "Daft Punk",
+    "category": "electro",
+    "description": "Álbum de estudio de Daft Punk, lanzado en 2001.",
+    "id": "10",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuJ6APvQhMeXpIeeTHOrkSzr0iOI1HdkYsYze1qDKnAg&s"
+    ],
+    "price": 14.99,
+    "stock": 80,
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuJ6APvQhMeXpIeeTHOrkSzr0iOI1HdkYsYze1qDKnAg&s",
+    "title": "Discovery"
+  },
+  {
+    "artist": "Nirvana",
+    "category": "rock",
+    "description": "Segundo álbum de estudio de Nirvana, lanzado en 1991.",
+    "id": "11",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg"
+    ],
+    "price": 16.99,
+    "stock": 78,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg",
+    "title": "Nevermind"
+  },
+  {
+    "artist": "Amy Winehouse",
+    "category": "pop",
+    "description": "Segundo y último álbum de estudio de Amy Winehouse, lanzado en 2006.",
+    "id": "12",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/6/67/Amy_Winehouse_-_Back_to_Black_%28album%29.png"
+    ],
+    "price": 15.99,
+    "stock": 85,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/67/Amy_Winehouse_-_Back_to_Black_%28album%29.png",
+    "title": "Back to Black"
+  },
+  {
+    "artist": "Dr. Dre",
+    "category": "hip-hop",
+    "description": "Álbum de estudio de Dr. Dre, lanzado en 1992.",
+    "id": "13",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/1/19/Dr.DreTheChronic.jpg"
+    ],
+    "price": 17.99,
+    "stock": 77,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/19/Dr.DreTheChronic.jpg",
+    "title": "The Chronic"
+  },
+  null,
+  {
+    "artist": "Justice",
+    "category": "electro",
+    "description": "Álbum de estudio de Justice, lanzado en 2007.",
+    "id": "15",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/7/71/Justice_-_Cross_%282007%29.jpg"
+    ],
+    "price": 18.99,
+    "stock": 75,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/7/71/Justice_-_Cross_%282007%29.jpg",
+    "title": "Cross"
+  },
+  {
+    "artist": "Led Zeppelin",
+    "category": "rock",
+    "description": "Cuarto álbum de estudio de Led Zeppelin, lanzado en 1971.",
+    "id": "16",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/2/26/Led_Zeppelin_-_Led_Zeppelin_IV.jpg"
+    ],
+    "price": 19.99,
+    "stock": 85,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/2/26/Led_Zeppelin_-_Led_Zeppelin_IV.jpg",
+    "title": "Led Zeppelin IV"
+  },
+  {
+    "artist": "Pearl Jam",
+    "category": "rock",
+    "description": "Álbum de estudio de Pearl Jam, lanzado en 2009.",
+    "id": "17",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/8/8c/Pearl_jam_backspacer.jpg"
+    ],
+    "price": 14.99,
+    "stock": 90,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/8c/Pearl_jam_backspacer.jpg",
+    "title": "Backspacer"
+  },
+  {
+    "artist": "Britney Spears",
+    "category": "pop",
+    "description": "Segundo álbum de estudio de Britney Spears, lanzado en 2011.",
+    "id": "18",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/b/b9/Britney_Spears_-_Femme_Fatale.png"
+    ],
+    "price": 12.99,
+    "stock": 80,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/b/b9/Britney_Spears_-_Femme_Fatale.png",
+    "title": "Femme Fatale"
+  },
+  null,
+  {
+    "artist": "Radiohead",
+    "category": "rock",
+    "description": "Séptimo álbum de estudio de Radiohead, lanzado en 2007.",
+    "id": "20",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/1/14/Inrainbowscover.png"
+    ],
+    "price": 15.99,
+    "stock": 75,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/14/Inrainbowscover.png",
+    "title": "In Rainbows"
+  },
+  {
+    "artist": "Elliott Smith",
+    "category": "rock",
+    "description": "Cuarto álbum de estudio de Elliott Smith, lanzado en 1998.",
+    "id": "21",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/3/35/ElliottsmithXOalbumcover.jpg"
+    ],
+    "price": 17.99,
+    "stock": 77,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/35/ElliottsmithXOalbumcover.jpg",
+    "title": "XO"
+  },
+  {
+    "artist": "Dua Lipa",
+    "category": "pop",
+    "description": "Segundo álbum de estudio de Dua Lipa, lanzado en 2020.",
+    "id": "22",
+    "images": [
+      "https://contentv2.tap-commerce.com/cover/large/19029528610_1.jpg?id_com=1156"
+    ],
+    "price": 18.99,
+    "stock": 79,
+    "thumbnail": "https://contentv2.tap-commerce.com/cover/large/19029528610_1.jpg?id_com=1156",
+    "title": "Future Nostalgia"
+  },
+  {
+    "artist": "Kendrick Lamar",
+    "category": "hip-hop",
+    "description": "Tercer álbum de estudio de Kendrick Lamar, lanzado en 2015.",
+    "id": "23",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/f/f6/Kendrick_Lamar_-_To_Pimp_a_Butterfly.png"
+    ],
+    "price": 19.99,
+    "stock": 72,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/f/f6/Kendrick_Lamar_-_To_Pimp_a_Butterfly.png",
+    "title": "To Pimp a Butterfly"
+  },
+  {
+    "artist": "David Bowie",
+    "category": "rock",
+    "description": "Vigésimo quinto y último álbum de estudio de David Bowie, lanzado en 2016.",
+    "id": "24",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/c/c5/David_Bowie_%E2%80%93_Blackstar.jpg"
+    ],
+    "price": 20.99,
+    "stock": 90,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/c/c5/David_Bowie_%E2%80%93_Blackstar.jpg",
+    "title": "Blackstar"
+  },
+  {
+    "artist": "Neutral Milk Hotel",
+    "category": "rock",
+    "description": "Segundo álbum de estudio de Neutral Milk Hotel, lanzado en 1998.",
+    "id": "25",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/8/83/In_the_aeroplane_over_the_sea_album_cover_copy.jpg"
+    ],
+    "price": 18.99,
+    "stock": 76,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/83/In_the_aeroplane_over_the_sea_album_cover_copy.jpg",
+    "title": "In the Aeroplane Over the Sea"
+  },
+  {
+    "artist": "Daft Punk",
+    "category": "electro",
+    "description": "Banda sonora de la película Tron: Legacy, lanzada en 2010.",
+    "id": "26",
+    "images": [
+      "https://lastfm.freetls.fastly.net/i/u/500x500/ad8afd3121f24382a30db78ac912d3df.jpg"
+    ],
+    "price": 16.99,
+    "stock": 88,
+    "thumbnail": "https://lastfm.freetls.fastly.net/i/u/500x500/ad8afd3121f24382a30db78ac912d3df.jpg",
+    "title": "Tron: Legacy"
+  },
+  {
+    "artist": "Eagles",
+    "category": "rock",
+    "description": "Quinto álbum de estudio de Eagles, lanzado en 1976.",
+    "id": "27",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg"
+    ],
+    "price": 19.99,
+    "stock": 84,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg",
+    "title": "Hotel California"
+  },
+  {
+    "artist": "Lady Gaga",
+    "category": "pop",
+    "description": "Álbum de estudio de Lady Gaga, lanzado en 2008.",
+    "id": "28",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/d/dd/Lady_Gaga_%E2%80%93_The_Fame_album_cover.png"
+    ],
+    "price": 15.99,
+    "stock": 82,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/d/dd/Lady_Gaga_%E2%80%93_The_Fame_album_cover.png",
+    "title": "The Fame"
+  },
+  {
+    "artist": "N.W.A.",
+    "category": "hip-hop",
+    "description": "Álbum de estudio de N.W.A., lanzado en 1988.",
+    "id": "29",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/8/84/StraightOuttaComptonN.W.A..jpg"
+    ],
+    "price": 18.99,
+    "stock": 83,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/84/StraightOuttaComptonN.W.A..jpg",
+    "title": "Straight Outta Compton"
+  },
+  {
+    "artist": "Christina Aguilera",
+    "category": "pop",
+    "description": "Álbum de estudio de Christina Aguilera, lanzado en 2006.",
+    "id": "30",
+    "images": [
+      "https://i.scdn.co/image/ab67616d0000b273d74f4550a6e409bf51652db7"
+    ],
+    "price": 14.99,
+    "stock": 81,
+    "thumbnail": "https://i.scdn.co/image/ab67616d0000b273d74f4550a6e409bf51652db7",
+    "title": "Back to Basics"
+  },
+  {
+    "artist": "Gorillaz",
+    "category": "rock",
+    "description": "Segundo álbum de estudio de Gorillaz, lanzado en 2005.",
+    "id": "31",
+    "images": [
+      "https://contentv2.tap-commerce.com/cover/large/724387383821_1.jpg?id_com=1156"
+    ],
+    "price": 17.99,
+    "stock": 79,
+    "thumbnail": "https://contentv2.tap-commerce.com/cover/large/724387383821_1.jpg?id_com=1156",
+    "title": "Demon Days"
+  },
+  {
+    "artist": "Ariana Grande",
+    "category": "pop",
+    "description": "Quinto álbum de estudio de Ariana Grande, lanzado en 2019.",
+    "id": "32",
+    "images": [
+      "https://i.scdn.co/image/ab67616d0000b27356ac7b86e090f307e218e9c8"
+    ],
+    "price": 19.99,
+    "stock": 78,
+    "thumbnail": "https://i.scdn.co/image/ab67616d0000b27356ac7b86e090f307e218e9c8",
+    "title": "Thank U, Next"
+  },
+  {
+    "artist": "Kanye West",
+    "category": "hip-hop",
+    "description": "Álbum de estudio de Kanye West, lanzado en 2004.",
+    "id": "33",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/a/a3/Kanyewest_collegedropout.jpg"
+    ],
+    "price": 16.99,
+    "stock": 80,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/a/a3/Kanyewest_collegedropout.jpg",
+    "title": "The College Dropout"
+  },
+  {
+    "artist": "David Bowie",
+    "category": "rock",
+    "description": "Vigésimo segundo álbum de estudio de David Bowie, lanzado en 2002.",
+    "id": "34",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/e/ec/Heathen_%28David_Bowie_album_-_cover_art%29.jpg"
+    ],
+    "price": 18.99,
+    "stock": 82,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/e/ec/Heathen_%28David_Bowie_album_-_cover_art%29.jpg",
+    "title": "Heathen"
+  },
+  null,
+  {
+    "artist": "Frank Ocean",
+    "category": "hip-hop",
+    "description": "Álbum de estudio de Frank Ocean, lanzado en 2012.",
+    "id": "36",
+    "images": [
+      "https://indiehoy.com/wp-content/uploads/2012/12/Frank-Ocean-Channel-Orange.jpeg"
+    ],
+    "price": 18.99,
+    "stock": 84,
+    "thumbnail": "https://indiehoy.com/wp-content/uploads/2012/12/Frank-Ocean-Channel-Orange.jpeg",
+    "title": "Channel Orange"
+  },
+  {
+    "artist": "Taylor Swift",
+    "category": "pop",
+    "description": "Quinto álbum de estudio de Taylor Swift, lanzado en 2014.",
+    "id": "37",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/d/d5/Taylor_Swift_-_1989_%28Taylor%27s_Version%29.png"
+    ],
+    "price": 17.99,
+    "stock": 76,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/d/d5/Taylor_Swift_-_1989_%28Taylor%27s_Version%29.png",
+    "title": "1989"
+  },
+  null,
+  null,
+  {
+    "artist": "Radiohead",
+    "category": "rock",
+    "description": "Noveno álbum de estudio de Radiohead, lanzado en 2016.",
+    "id": "40",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/6/6a/Amoonshapedpool.png"
+    ],
+    "price": 19.99,
+    "stock": 78,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/6a/Amoonshapedpool.png",
+    "title": "A Moon Shaped Pool"
+  },
+  {
+    "artist": "Lana Del Rey",
+    "category": "pop",
+    "description": "Álbum de estudio de Lana Del Rey, lanzado en 2012.",
+    "id": "41",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/2/29/BornToDieAlbumCover.png"
+    ],
+    "price": 16.99,
+    "stock": 80,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/2/29/BornToDieAlbumCover.png",
+    "title": "Born to Die"
+  },
+  null,
+  null,
+  null,
+  {
+    "artist": "David Bowie",
+    "category": "rock",
+    "description": "Cuarto álbum de estudio de David Bowie, lanzado en 1971.",
+    "id": "45",
+    "images": [
+      "https://www.nova.ie/wp-content/uploads/2021/12/The-Classic-Album-at-Midnight%E2%80%93david-bowie-hunky-dory.jpg"
+    ],
+    "price": 19.99,
+    "stock": 85,
+    "thumbnail": "https://www.nova.ie/wp-content/uploads/2021/12/The-Classic-Album-at-Midnight%E2%80%93david-bowie-hunky-dory.jpg",
+    "title": "Hunky Dory"
+  },
+  null,
+  null,
+  {
+    "artist": "Arcade Fire",
+    "category": "rock",
+    "description": "Tercer álbum de estudio de Arcade Fire, lanzado en 2010.",
+    "id": "48",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/8/81/Arcade_Fire_-_The_Suburbs.jpg"
+    ],
+    "price": 18.99,
+    "stock": 78,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/81/Arcade_Fire_-_The_Suburbs.jpg",
+    "title": "The Suburbs"
+  },
+  {
+    "artist": "Björk",
+    "category": "electro",
+    "description": "Cuarto álbum de estudio de Björk, lanzado en 2001.",
+    "id": "49",
+    "images": [
+      "https://i2.wp.com/www.scienceofnoise.net/wp-content/uploads/2021/09/TPLP101.jpg"
+    ],
+    "price": 16.99,
+    "stock": 80,
+    "thumbnail": "https://i2.wp.com/www.scienceofnoise.net/wp-content/uploads/2021/09/TPLP101.jpg",
+    "title": "Vespertine"
+  },
+  null,
+  {
+    "artist": "Michael Jackson",
+    "category": "pop",
+    "description": "Álbum de estudio de Michael Jackson, lanzado en 1982.",
+    "id": "51",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png"
+    ],
+    "price": 19.99,
+    "stock": 85,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png",
+    "title": "Thriller"
+  },
+  null,
+  null,
+  null,
+  null,
+  {
+    "artist": "Michael Jackson",
+    "category": "pop",
+    "description": "Séptimo álbum de estudio de Michael Jackson, lanzado en 1987.",
+    "id": "56",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/5/51/Michael_Jackson_-_Bad.png"
+    ],
+    "price": 19.99,
+    "stock": 79,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/5/51/Michael_Jackson_-_Bad.png",
+    "title": "Bad"
+  },
+  {
+    "artist": "Eminem",
+    "category": "hip-hop",
+    "description": "Cuarto álbum de estudio de Eminem, lanzado en 2002.",
+    "id": "57",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/3/35/The_Eminem_Show.jpg"
+    ],
+    "price": 18.99,
+    "stock": 76,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/35/The_Eminem_Show.jpg",
+    "title": "The Eminem Show"
+  },
+  {
+    "artist": "The Beatles",
+    "category": "rock",
+    "description": "Octavo álbum de estudio de The Beatles, lanzado en 1967.",
+    "id": "58",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/5/50/Sgt._Pepper%27s_Lonely_Hearts_Club_Band.jpg"
+    ],
+    "price": 20.99,
+    "stock": 80,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/5/50/Sgt._Pepper%27s_Lonely_Hearts_Club_Band.jpg",
+    "title": "Sgt. Pepper's Lonely Hearts Club Band"
+  },
+  {
+    "artist": "Kate Bush",
+    "category": "pop",
+    "description": "Quinto álbum de estudio de Kate Bush, lanzado en 1985.",
+    "id": "59",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/3/3f/Katebushhoundsoflove.png"
+    ],
+    "price": 17.99,
+    "stock": 78,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/3f/Katebushhoundsoflove.png",
+    "title": "Hounds of Love"
+  },
+  {
+    "artist": "Bill Evans Trio",
+    "category": "jazz",
+    "description": "Álbum de estudio del Bill Evans Trio, lanzado en 1961.",
+    "id": "60",
+    "images": [
+      "https://f4.bcbits.com/img/a2426637309_10.jpg"
+    ],
+    "price": 19.99,
+    "stock": 85,
+    "thumbnail": "https://f4.bcbits.com/img/a2426637309_10.jpg",
+    "title": "Sunday at the Village Vanguard"
+  },
+  {
+    "artist": "Duke Ellington",
+    "category": "jazz",
+    "description": "Álbum de estudio de Duke Ellington y su orquesta, lanzado en 1959.",
+    "id": "61",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/en/4/44/EllingtonAtNewport.jpg"
+    ],
+    "price": 16.99,
+    "stock": 82,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/44/EllingtonAtNewport.jpg",
+    "title": "Ellington at Newport"
+  }
+]

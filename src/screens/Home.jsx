@@ -14,7 +14,6 @@ export default Home
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: colors.background,
-    paddingBottom: 70
+    backgroundColor: colors.background
   }
 })

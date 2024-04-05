@@ -8,7 +8,7 @@ import fonts from '../utils/fonts'
 import { useLoginMutation } from '../app/services/auth'
 import { setUser } from '../features/auth/authSlice'
 import { loginSchema } from '../utils/validations/authSchema'
-import { insertSession } from '../database'
+import { deleteSession, insertSession } from '../database'
 
 const Login = ({ navigation }) => {
 
@@ -24,6 +24,7 @@ const Login = ({ navigation }) => {
       loginSchema.validateSync({ email, password })
       const { data, error } = await triggerLogin({ email, password })
       if (error) return setErrorEmail('Email o contraseña inválidos')
+      await deleteSession()
       await insertSession({ email: data.email, idToken: data.idToken, localId: data.localId })
       dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
     }

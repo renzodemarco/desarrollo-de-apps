@@ -1,15 +1,16 @@
-import { StyleSheet, Text, Pressable, View } from 'react-native'
+import { StyleSheet, Text, Pressable, ImageBackground, View } from 'react-native'
 import capitalize from '../utils/capitalize'
-import colors from '../utils/colors'
 import fonts from '../utils/fonts'
 
 const CategoryCard = ({ navigation, category }) => {
   return (
-      <Pressable onPress={() => navigation.navigate("ProductsByCategory", {category, title: category})}>
-        <View style={styles.container}>
-          <Text style={styles.text}>{capitalize(category)}</Text>
-        </View>
-      </Pressable>
+    <Pressable onPress={() => navigation.navigate("ProductsByCategory", { category, title: category.title })}>
+      <View style={styles.container}>
+        <ImageBackground source={{ uri: category.image }} style={styles.imageBackground}>
+          <Text style={styles.text}>{category.title === 'all' ? "Todos" : capitalize(category.title)}</Text>
+        </ImageBackground>
+      </View>
+    </Pressable>
   )
 }
 
@@ -17,17 +18,19 @@ export default CategoryCard
 
 const styles = StyleSheet.create({
   container: {
-    width: "80%",
-    backgroundColor: colors.secondary,
-    marginHorizontal: "10%",
-    marginVertical: 10,
-    padding: 20,
-    alignItems: "center",
-    borderRadius: 5
+    width: "100%",
+    height: 130,
+    alignItems: "center"
+  },
+  imageBackground: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain"
   },
   text: {
-    fontSize: 16,
-    color: '#000',
-    fontFamily: fonts.RobotoMedium
+    padding: 20,
+    fontSize: 30,
+    color: '#fff',
+    fontFamily: fonts.RobotoLight
   }
 })
