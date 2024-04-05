@@ -6,6 +6,7 @@ import ModalConfirm from '../components/ModalConfirm'
 import { useSelector } from 'react-redux'
 import * as Location from 'expo-location'
 import { usePutLocationMutation } from '../app/services/profile'
+import Wrapper from '../components/Wrapper'
 
 
 const LocationSelector = ({ navigation }) => {
@@ -54,17 +55,17 @@ const LocationSelector = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <Wrapper style={styles.container}>
       <Text style={styles.text}>{address}</Text>
       <MapPreview latitude={location.latitude} longitude={location.longitude} />
-      <ButtonPrimary title="Confirmar Localizacion" onPress={() => setModalVisible(true)} />
+      <ButtonPrimary title="Confirmar localizacion" onPress={() => setModalVisible(true)} />
       <ModalConfirm
         text="¿Desea cambiar la localización?"
         modalVisible={modalVisible}
         onClose={handleCloseModal}
         onConfirm={onConfirmAddress}
       />
-    </View>
+    </Wrapper>
   )
 }
 
@@ -73,7 +74,7 @@ export default LocationSelector
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginTop: 40,
+    paddingTop: 40,
     gap: 20
   },
   text: {

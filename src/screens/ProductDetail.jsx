@@ -9,6 +9,7 @@ import EmptyList from '../components/EmptyList'
 import ModalAlert from '../components/ModalAlert'
 import fonts from '../utils/fonts'
 import colors from '../utils/colors'
+import Wrapper from '../components/Wrapper'
 
 const ProductDetail = ({ route }) => {
 
@@ -37,7 +38,7 @@ const ProductDetail = ({ route }) => {
   if (isSuccess && product === null) return <EmptyList message="Producto no disponible." />
 
   return (
-    <View style={styles.background}>
+    <Wrapper>
       <Image
         style={styles.image}
         source={{ uri: product?.images ? product.images[0] : null }}
@@ -56,16 +57,13 @@ const ProductDetail = ({ route }) => {
         modalVisible={modalVisible}
         onClose={handleCloseModal}
       />
-    </View>
+    </Wrapper>
   )
 }
 
 export default ProductDetail
 
 const styles = StyleSheet.create({
-  background: {
-    backgroundColor: colors.background
-  },
   image: {
     width: '100%',
     height: 260

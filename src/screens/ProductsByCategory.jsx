@@ -1,11 +1,11 @@
-import { FlatList, StyleSheet, View, Text } from 'react-native'
+import { FlatList, View } from 'react-native'
 import { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import LoadingSpinner from '../components/LoadingSpinner'
 import Error from '../components/Error'
 import EmptyList from '../components/EmptyList'
 import Search from '../components/Search'
-import colors from '../utils/colors'
+import Wrapper from '../components/Wrapper'
 import { useGetProductsByCategoryQuery } from '../app/services/shop' 
 
 const ProductsByCategory = ({ navigation, route }) => {
@@ -39,21 +39,15 @@ const ProductsByCategory = ({ navigation, route }) => {
   if (isSuccess && category === null) return <EmptyList message="No hay productos en esta categoría." />
 
   return (
-    <View style={styles.background}>
+    <Wrapper>
       <Search handleKeyword={handleKeyword}/>
       <FlatList
         data={filteredProducts}
         keyExtractor={item => item.id}
         renderItem={({ item }) => <ProductCard item={item} navigation={navigation}/>}
       />
-    </View>
+    </Wrapper>
   )
 }
 
 export default ProductsByCategory
-
-const styles = StyleSheet.create({
-  background: {
-    backgroundColor: colors.background
-  }
-})

@@ -5,6 +5,7 @@ import ButtonPrimary from '../components/ButtonPrimary'
 import ModalConfirm from '../components/ModalConfirm'
 import { useGetImageQuery, usePutImageMutation } from '../app/services/profile';
 import { useSelector } from 'react-redux';
+import Wrapper from '../components/Wrapper';
 
 
 const ImageSelector = ({ navigation }) => {
@@ -47,22 +48,22 @@ const ImageSelector = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <Wrapper style={styles.container}>
       <Image
         source={image ? { uri: image } : require("../../assets/user.png")}  // si hay una imagen se usará esa, de lo contrario va la imagen por defecto
         style={styles.image}
         resizeMode='cover'
 
       />
-      <ButtonPrimary title="Tomar foto" onPress={pickImage} />
-      <ButtonPrimary title="Confirm photo" onPress={() => setModalVisible(true)} />
+      <ButtonPrimary title="Seleccionar imagen" onPress={pickImage} />
+      <ButtonPrimary title="Confirmar imagen" onPress={() => setModalVisible(true)} />
       <ModalConfirm
         text="¿Desea cambiar la foto de perfil?"
         modalVisible={modalVisible}
         onClose={handleCloseModal}
         onConfirm={confirmImage}
       />
-    </View>
+    </Wrapper>
   )
 }
 
@@ -72,9 +73,8 @@ export default ImageSelector
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
-    marginTop: 20
+    paddingTop: 20
   },
   image: {
     width: 200,

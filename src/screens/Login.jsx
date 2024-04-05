@@ -9,6 +9,7 @@ import { useLoginMutation } from '../app/services/auth'
 import { setUser } from '../features/auth/authSlice'
 import { loginSchema } from '../utils/validations/authSchema'
 import { deleteSession, insertSession } from '../database'
+import Wrapper from '../components/Wrapper'
 
 const Login = ({ navigation }) => {
 
@@ -46,7 +47,7 @@ const Login = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.main}>
+    <Wrapper style={styles.main}>
       <View style={styles.container}>
         <InputForm
           label="Email"
@@ -67,7 +68,7 @@ const Login = ({ navigation }) => {
           <Text style={styles.sub}>No tengo una cuenta</Text>
         </Pressable>
       </View>
-    </View>
+    </Wrapper>
   )
 }
 
@@ -75,8 +76,7 @@ export default Login
 
 const styles = StyleSheet.create({
   main: {
-    flex: 1,
-    justifyContent: "center",
+    paddingTop:'30%',
     alignItems: "center"
   },
   container: {
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.RobotoMedium
   },
   sub: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: fonts.RobotoBold,
     color: colors.primary
   }

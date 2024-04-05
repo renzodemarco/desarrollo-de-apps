@@ -4,6 +4,7 @@ import EmptyList from '../components/EmptyList'
 import fonts from '../utils/fonts'
 import { useSelector } from 'react-redux'
 import { useGetOrdersQuery } from '../app/services/orders'
+import Wrapper from '../components/Wrapper'
 
 const Orders = ({ navigation }) => {
 
@@ -11,7 +12,7 @@ const Orders = ({ navigation }) => {
   const { data: orders } = useGetOrdersQuery(localId)
 
   return (
-    <>
+    <Wrapper>
       {orders?.length == 0 ?
         <EmptyList message="Aún no has hecho ninguna orden." />
         :
@@ -21,7 +22,7 @@ const Orders = ({ navigation }) => {
           renderItem={({ item }) => <OrderItem order={item} navigation={navigation} />}
         />
       }
-    </>
+    </Wrapper>
   )
 }
 

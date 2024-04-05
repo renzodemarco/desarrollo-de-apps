@@ -10,6 +10,7 @@ import colors from '../utils/colors'
 import fonts from '../utils/fonts'
 import { registerSchema } from '../utils/validations/authSchema'
 import { deleteSession, insertSession } from '../database'
+import Wrapper from '../components/Wrapper'
 
 
 const Register = ({ navigation }) => {
@@ -55,7 +56,7 @@ const Register = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.main}>
+    <Wrapper style={styles.main}>
       <View style={styles.container}>
         <InputForm
           label="Email"
@@ -86,7 +87,7 @@ const Register = ({ navigation }) => {
         text='Se ha registrado el usuario correctamente'
         modalVisible={modalVisible}
       />
-    </View>
+    </Wrapper>
   )
 }
 
@@ -94,8 +95,7 @@ export default Register
 
 const styles = StyleSheet.create({
   main: {
-    flex: 1,
-    justifyContent: "center",
+    paddingTop:'30%',
     alignItems: "center"
   },
   container: {
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.RobotoMedium
   },
   sub: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: fonts.RobotoBold,
     color: colors.primary
   }

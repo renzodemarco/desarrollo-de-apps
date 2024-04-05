@@ -1,19 +1,12 @@
 import Categories from '../components/Categories'
-import { View, StyleSheet } from 'react-native'
-import colors from '../utils/colors'
+import Wrapper from '../components/Wrapper'
 
 const Home = ({ navigation }) => {
   return (
-    <View style={styles.background}>
+    <Wrapper>
       <Categories navigation={navigation}/>
-    </View>
+    </Wrapper>
   )
 }
 
 export default Home
-
-const styles = StyleSheet.create({
-  background: {
-    backgroundColor: colors.background
-  }
-})

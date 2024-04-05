@@ -7,7 +7,7 @@ const Header = ({ title, navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{capitalize(title)}</Text>
-      {navigation.canGoBack() ?       
+      {navigation.canGoBack() ?
         <Pressable style={styles.back} onPress={() => navigation.goBack()}>
           <AntDesign name='back' size={30} color="#fff" />
         </Pressable>
@@ -21,7 +21,7 @@ export default Header
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.overlay,
     height: 80,
     width: "100%",
     justifyContent: "center",

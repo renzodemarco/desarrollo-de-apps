@@ -5,6 +5,7 @@ import OrdersStack from './OrdersStack'
 import TabBarIcon from '../components/TabBarIcon';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProfileStack from './ProfileStack';
+import colors from '../utils/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -61,17 +62,9 @@ export default TabNavigator
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.overlay,
     height: 60,
     position: 'absolute',
-    bottom: 0,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.6,
-    elevation: 7,
+    bottom: 0
   }
 })

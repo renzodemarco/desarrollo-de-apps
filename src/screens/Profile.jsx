@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useGetImageQuery, useGetLocationQuery } from '../app/services/profile'
 import { clearUser } from '../features/auth/authSlice'
 import { deleteSession } from '../database'
+import Wrapper from '../components/Wrapper'
 
 const Profile = ({ navigation }) => {
 
@@ -26,7 +27,7 @@ const Profile = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <Wrapper style={styles.container}>
       <Image
         source={imageData ? { uri: imageData.image } : require("../../assets/user.png")}
         style={styles.image}
@@ -51,7 +52,7 @@ const Profile = ({ navigation }) => {
         onClose={handleCloseModal}
         onConfirm={handleLogout}
       />
-    </View>
+    </Wrapper>
   )
 }
 
@@ -60,7 +61,7 @@ export default Profile
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    margin: 20
+    padding: 20
   },
   text: {
     fontFamily: fonts.RobotoLight,

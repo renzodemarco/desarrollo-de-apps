@@ -8,6 +8,7 @@ import ModalConfirm from '../components/ModalConfirm'
 import { usePostOrderMutation } from '../app/services/orders'
 import { deleteCart } from '../features/cart/cartSlice'
 import fonts from '../utils/fonts'
+import Wrapper from '../components/Wrapper'
 
 const Cart = ({ navigation }) => {
 
@@ -35,7 +36,7 @@ const Cart = ({ navigation }) => {
   }
 
   return (
-    <>
+    <Wrapper>
       {
         (cart.items.length == 0) ?
           <EmptyList message='El carrito está vacío.' /> :
@@ -62,7 +63,7 @@ const Cart = ({ navigation }) => {
             />
           </>
       }
-    </>
+    </Wrapper>
   )
 }
 
