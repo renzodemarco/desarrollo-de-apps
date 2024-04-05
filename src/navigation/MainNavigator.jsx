@@ -14,18 +14,22 @@ const MainNavigator = () => {
     (async () => {
       const session = await fetchSession()
       if (session.rows.length) {
-        const user = session.rows._array[0]
-        dispatch(setUser(user))
+        const now = Math.floor(Date.now() / 1000)
+        const updatedAt = session.rows._array[0].updatedAt
+        const sessionTime = now - updatedAt
+        if (sessionTime < 3600) {
+          const user = session.rows._array[0]
+          dispatch(setUser(user))
+        }
       }
     })()
   }, [])
-  
 
   const user = useSelector((state) => state.auth)
 
   return (
     <NavigationContainer>
-      { user.idToken ? <TabNavigator/> : <AuthStack /> }
+      {user.idToken ? <TabNavigator /> : <AuthStack />}
     </NavigationContainer>
   );
 }

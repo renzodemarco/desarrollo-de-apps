@@ -6,7 +6,7 @@ export const init = () => {
   const promise = new Promise((resolve, reject) => {
     db.transaction(tx => {
       tx.executeSql(
-        'CREATE TABLE IF NOT EXISTS sessionUser (localId TEXT NOT NULL, email TEXT NOT NULL, idToken TEXT NOT NULL)',  // consulta
+        'CREATE TABLE IF NOT EXISTS sessionUser (localId TEXT NOT NULL, email TEXT NOT NULL, idToken TEXT NOT NULL,updatedAt INTEGER)',  // consulta
         [],  // valores pasados a la consulta
         (_, result) => resolve(result),  // si la consulta se resuelve
         (_, error) => reject(error)  // si la consulta se rechaza
@@ -20,7 +20,7 @@ export const insertSession = ({ localId, email, idToken }) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction(tx => {
       tx.executeSql(
-        "INSERT INTO sessionUser (localId,email,idToken) VALUES (?,?,?)",
+        "INSERT INTO sessionUser (localId,email,idToken,updatedAt) VALUES (?,?,?,strftime('%s', 'now'))",
         [localId, email, idToken],
         (_, result) => resolve(result),
         (_, error) => reject(error)

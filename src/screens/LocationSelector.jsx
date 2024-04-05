@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { useState, useEffect } from 'react'
 import MapPreview from '../components/MapPreview'
 import ButtonPrimary from '../components/ButtonPrimary'
+import ModalConfirm from '../components/ModalConfirm'
 import { useSelector } from 'react-redux'
 import * as Location from 'expo-location'
 import { usePutLocationMutation } from '../app/services/profile'
@@ -14,6 +15,11 @@ const LocationSelector = ({ navigation }) => {
   const [address, setAddress] = useState("")
   const localId = useSelector(state => state.auth.localId)
   const [triggerLocationMutation] = usePutLocationMutation()
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const handleCloseModal = () => {
+    setModalVisible(false)
+  }
 
   useEffect(() => {
     (async () => {  // esto es una función autoejecutable, hago esto porque no el useEffect no puede ser async
@@ -51,7 +57,13 @@ const LocationSelector = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.text}>{address}</Text>
       <MapPreview latitude={location.latitude} longitude={location.longitude} />
-      <ButtonPrimary title="Confirmar Localizacion" onPress={onConfirmAddress} />
+      <ButtonPrimary title="Confirmar Localizacion" onPress={() => setModalVisible(true)} />
+      <ModalConfirm
+        text="¿Desea cambiar la localización?"
+        modalVisible={modalVisible}
+        onClose={handleCloseModal}
+        onConfirm={onConfirmAddress}
+      />
     </View>
   )
 }
