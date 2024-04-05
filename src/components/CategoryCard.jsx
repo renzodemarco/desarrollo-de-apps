@@ -4,7 +4,9 @@ import fonts from '../utils/fonts'
 
 const CategoryCard = ({ navigation, category }) => {
   return (
-    <Pressable onPress={() => navigation.navigate("ProductsByCategory", { category, title: category.title })}>
+    <Pressable onPress={() => navigation.navigate(category.title === 'all' ? "AllProducts" : "ProductsByCategory",
+      { title: category.title, category })}
+    >
       <View style={styles.container}>
         <ImageBackground source={{ uri: category.image }} style={styles.imageBackground}>
           <Text style={styles.text}>{category.title === 'all' ? "Todos" : capitalize(category.title)}</Text>
@@ -28,7 +30,8 @@ const styles = StyleSheet.create({
     resizeMode: "contain"
   },
   text: {
-    padding: 20,
+    paddingTop: 10,
+    paddingHorizontal: 16,
     fontSize: 30,
     color: '#fff',
     fontFamily: fonts.RobotoLight

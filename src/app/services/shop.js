@@ -16,8 +16,16 @@ export const shopApi = createApi({
     }),
     getProduct: builder.query({
       query: (id) => `/products/${id}.json`
+    }),
+    getAllProducts: builder.query({
+      query: () => `/products.json`,
+      transformResponse: (response) => {
+        const filteredData = response.filter(item => item !== null);
+        const data = Object.values(filteredData);
+        return data;
+      }
     })
   })
 })
 
-export const { useGetProductsByCategoryQuery, useGetCategoriesQuery, useGetProductQuery } = shopApi
+export const { useGetProductsByCategoryQuery, useGetCategoriesQuery, useGetProductQuery, useGetAllProductsQuery } = shopApi
