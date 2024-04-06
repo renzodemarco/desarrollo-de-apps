@@ -14,7 +14,6 @@ const ProductsByCategory = ({ navigation, route }) => {
   const { data: products, isLoading, isError, isSuccess } = useGetProductsByCategoryQuery(category)
   const [filteredProducts, setFilteredProducts] = useState([])
   const [keyword, setKeyword] = useState("")
-  const [keyboardOpen, setKeyboardOpen] = useState(false);
 
   const handleKeyword = (value) => {
     setKeyword(value)
@@ -40,7 +39,7 @@ const ProductsByCategory = ({ navigation, route }) => {
   if (isSuccess && category === null) return <EmptyList message="No hay productos en esta categoría." />
 
   return (
-    <Wrapper style={keyboardOpen ? {paddingBottom: 0} : null}>
+    <Wrapper>
       <Search handleKeyword={handleKeyword}/>
       <FlatList
         data={filteredProducts}

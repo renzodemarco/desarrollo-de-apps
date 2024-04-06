@@ -10,6 +10,7 @@ import ModalAlert from '../components/ModalAlert'
 import fonts from '../utils/fonts'
 import colors from '../utils/colors'
 import Wrapper from '../components/Wrapper'
+import ButtonPrimary from '../components/ButtonPrimary'
 
 const ProductDetail = ({ route }) => {
 
@@ -47,10 +48,16 @@ const ProductDetail = ({ route }) => {
       <View style={styles.container}>
         <Text style={styles.title}>{product.title}</Text>
         <Text style={styles.description}>{product.description}</Text>
-        <Text style={styles.price}>${product.price}</Text>
-        <Pressable style={styles.button} onPress={handleAddProduct}>
-          <Text style={styles.buttonText}>AGREGAR AL CARRITO</Text>
-        </Pressable>
+        <View style={styles.buttonContainer}>
+          <Text style={styles.price}>${product.price}</Text>
+          <ButtonPrimary
+            onPress={handleAddProduct}
+            title='AGREGAR AL CARRITO'
+            textStyle={styles.buttonText}
+            buttonStyle={styles.button}
+          />
+        </View>
+
       </View>
       <ModalAlert
         text={`Se ha agregado ${product.title} al carrito`}
@@ -65,8 +72,8 @@ export default ProductDetail
 
 const styles = StyleSheet.create({
   image: {
-    width: '100%',
-    height: 260
+    aspectRatio: 1,
+    width: '100%'
   },
   container: {
     alignItems: 'flex-start',
@@ -75,24 +82,34 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: fonts.RobotoBold,
-    fontSize: 26
+    color: colors.primary,
+    fontSize: 28
   },
   description: {
     fontFamily: fonts.RobotoLight,
-    fontSize: 16
+    color: '#fff',
+    fontSize: 16,
+    marginBottom: 20
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
   price: {
     fontFamily: fonts.RobotoBold,
-    fontSize: 22
+    fontSize: 22,
+    color: colors.primary
   },
   button: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
     paddingVertical: 8,
-    backgroundColor: colors.secondary,
-    alignSelf: 'center'
+    backgroundColor: colors.primary,
+    alignSelf: 'center',
+    fontSize: 10
   },
   buttonText: {
-    color: '#fff',
     fontSize: 16,
     fontFamily: fonts.RobotoMedium
   }

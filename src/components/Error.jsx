@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native'
 import ButtonPrimary from './ButtonPrimary'
+import colors from '../utils/colors'
 
 const Error = ({ message, textButton, onRetry }) => {
 
@@ -16,6 +17,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.background
   },
   errorMessage: {
     fontSize: 18,

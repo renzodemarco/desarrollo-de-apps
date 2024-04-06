@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native'
 import fonts from '../utils/fonts'
+import colors from '../utils/colors'
 
 const EmptyList = ({ message }) => {
 
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.background
   },
   errorMessage: {
     fontSize: 18,

@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.overlay,
     height: 60,
     position: 'absolute',
-    bottom: 0
+    bottom: 0,
+    borderTopColor: colors.overlay
   }
 })

@@ -17,7 +17,7 @@ const ShopStack = () => {
           header: () => {
             return <Header
               navigation={navigation}
-              title={route.params?.title || route.name} />
+              title={route.params?.title === 'all' ? 'Todos' : route.params?.title || route.name} />
           }
         }
       }}
