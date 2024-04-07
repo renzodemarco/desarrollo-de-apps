@@ -26,7 +26,7 @@ const TabNavigator = () => {
         name="ShopStack"
         component={ShopStack}
         options={{
-          tabBarIcon: ({ focused }) => <TabBarIcon title='Shop' icon='home' focused={focused} />
+          tabBarIcon: ({ focused }) => <TabBarIcon title='Compras' icon='note' focused={focused} />
         }}
       />
 

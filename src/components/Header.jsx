@@ -9,7 +9,7 @@ const Header = ({ title, navigation }) => {
       <Text style={styles.text}>{capitalize(title)}</Text>
       {navigation.canGoBack() ?
         <Pressable style={styles.back} onPress={() => navigation.goBack()}>
-          <AntDesign name='back' size={30} color="#fff" />
+          <AntDesign name='back' size={36} color='#fff' />
         </Pressable>
         : null
       }
@@ -34,8 +34,6 @@ const styles = StyleSheet.create({
   back: {
     position: 'absolute',
     top: 10,
-    right: 10,
-    width: 30,
-    height: 30
+    right: 10
   }
 })

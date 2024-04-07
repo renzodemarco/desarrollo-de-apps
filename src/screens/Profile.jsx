@@ -1,13 +1,13 @@
 import { StyleSheet, View, Image, Text } from 'react-native'
 import { useState } from 'react'
-import AddButton from '../components/ButtonPrimary'
+import ButtonPrimary from '../components/ButtonPrimary'
 import ModalConfirm from '../components/ModalConfirm'
-import fonts from '../utils/fonts'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetImageQuery, useGetLocationQuery } from '../app/services/profile'
 import { clearUser } from '../features/auth/authSlice'
 import { deleteSession } from '../database'
 import Wrapper from '../components/Wrapper'
+import colors from '../utils/colors'
 
 const Profile = ({ navigation }) => {
 
@@ -33,18 +33,22 @@ const Profile = ({ navigation }) => {
         style={styles.image}
         resizeMode='cover'
       />
-      <AddButton
+      <ButtonPrimary
         title={imageData ? "Cambiar imagen de perfil" : "Agregar imagen de perfil"}
         onPress={() => navigation.navigate('ImageSelector')}
+        buttonStyle={{width: 270, marginBottom: 20}}
       />
       {locationData ? <Text style={styles.text}>{locationData.address}</Text> : null}
-      <AddButton
+      <ButtonPrimary
         title={locationData ? "Cambiar localización" : "Agregar localización"}
         onPress={() => navigation.navigate('LocationSelector')}
+        buttonStyle={{width: 270}}
       />
-      <AddButton
+      <ButtonPrimary
         title={"Cerrar sesión"}
         onPress={() => setModalVisible(true)}
+        buttonStyle={{ position: 'absolute', bottom: 140, width: 200, backgroundColor: colors.overlay}}
+        textStyle={{color: colors.primary}}
       />
       <ModalConfirm
         text="¿Desea cerrar sesión?"
@@ -60,22 +64,19 @@ export default Profile
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    padding: 20
-  },
-  text: {
-    fontFamily: fonts.RobotoLight,
-    fontSize: 16,
-    marginTop: 40,
-    marginBottom: 10,
-    textAlign: 'center'
+    alignItems: 'center'
   },
   image: {
-    width: 200,
-    height: 200,
-    marginBottom: 26
+    aspectRatio: 1,
+    width: '50%',
+    margin: 20,
+    borderRadius: 100,
+    borderWidth: 2,
+    borderColor: '#fff'
   },
-  listContainer: {
-    height: 400
+  text: {
+    color: '#fff',
+    textAlign: 'center',
+    padding: 20
   }
 })

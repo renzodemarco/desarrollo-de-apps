@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import * as Location from 'expo-location'
 import { usePutLocationMutation } from '../app/services/profile'
 import Wrapper from '../components/Wrapper'
+import colors from '../utils/colors'
 
 
 const LocationSelector = ({ navigation }) => {
@@ -49,8 +50,8 @@ const LocationSelector = ({ navigation }) => {
   }, [location])
 
   const onConfirmAddress = async () => {
-    const locationFormatted = {address, location}
-    await triggerLocationMutation({locationFormatted, localId})
+    const locationFormatted = { address, location }
+    await triggerLocationMutation({ locationFormatted, localId })
     navigation.goBack()
   }
 
@@ -58,7 +59,11 @@ const LocationSelector = ({ navigation }) => {
     <Wrapper style={styles.container}>
       <Text style={styles.text}>{address}</Text>
       <MapPreview latitude={location.latitude} longitude={location.longitude} />
-      <ButtonPrimary title="Confirmar localizacion" onPress={() => setModalVisible(true)} />
+      <ButtonPrimary
+        title="Confirmar localizacion"
+        onPress={() => setModalVisible(true)}
+        buttonStyle={{ width: 270 }}
+      />
       <ModalConfirm
         text="¿Desea cambiar la localización?"
         modalVisible={modalVisible}
@@ -78,6 +83,7 @@ const styles = StyleSheet.create({
     gap: 20
   },
   text: {
-    fontSize: 16
+    fontSize: 16,
+    color: colors.primary
   }
 })

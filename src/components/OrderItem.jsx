@@ -1,19 +1,18 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
-import { Entypo } from '@expo/vector-icons'
-import { deleteProduct } from '../features/cart/cartSlice'
-import { useDispatch } from 'react-redux'
 import colors from '../utils/colors'
 import fonts from '../utils/fonts'
+import truncate from '../utils/truncate'
 
 const CartItem = ({ order }) => {
 
-  const dispatch = useDispatch()
+  const items = truncate(order.order.items, 36)
 
   return (
     <View style={styles.card}>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{order.order.createdAt}</Text>
-        <Text style={styles.text2}>${order.order.total} </Text>
+        <Text style={styles.text}>${order.order.total}</Text>
+        <Text style={styles.text2}>{items} </Text>
+        <Text style={styles.text3}>{order.order.createdAt} </Text>
       </View>
     </View>
   )
@@ -23,28 +22,35 @@ export default CartItem
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.overlay,
     padding: 18,
     marginTop: 8,
     marginHorizontal: 8,
     borderWidth: 2,
-    borderRadius: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     height: 100,
     alignItems: "center"
   },
   textContainer: {
-    width: "70%"
+    width: "100%",
+    height: "100%",
+    justifyContent: 'space-between',
   },
   text: {
-    color: '#111',
+    color: colors.primary,
     fontSize: 18,
     fontFamily: fonts.RobotoMedium
   },
   text2: {
-    color: '#222',
+    color: colors.primary,
     fontSize: 14,
+    fontFamily: fonts.RobotoLight
+  },
+  text3: {
+    marginTop: 6,
+    color: '#fff',
+    fontSize: 10,
     fontFamily: fonts.RobotoLight
   }
 })

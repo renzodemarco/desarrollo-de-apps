@@ -1,7 +1,6 @@
 import { FlatList } from 'react-native'
 import OrderItem from '../components/OrderItem'
 import EmptyList from '../components/EmptyList'
-import fonts from '../utils/fonts'
 import { useSelector } from 'react-redux'
 import { useGetOrdersQuery } from '../app/services/orders'
 import Wrapper from '../components/Wrapper'

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.RobotoMedium
   },
   artist: {
-    color: '#fff',
+    color: colors.secondary,
     fontSize: 12,
     fontFamily: fonts.RobotoLight
   },

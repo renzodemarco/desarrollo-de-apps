@@ -55,8 +55,16 @@ const ImageSelector = ({ navigation }) => {
         resizeMode='cover'
 
       />
-      <ButtonPrimary title="Seleccionar imagen" onPress={pickImage} />
-      <ButtonPrimary title="Confirmar imagen" onPress={() => setModalVisible(true)} />
+      <ButtonPrimary
+        title="Seleccionar imagen"
+        onPress={pickImage}
+        buttonStyle={{width: 270}}
+      />
+      <ButtonPrimary
+        title="Confirmar imagen"
+        onPress={() => setModalVisible(true)}
+        buttonStyle={{marginTop: 20, width: 270}}
+      />
       <ModalConfirm
         text="¿Desea cambiar la foto de perfil?"
         modalVisible={modalVisible}
@@ -77,8 +85,8 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   image: {
-    width: 200,
-    height: 200,
-    marginBottom: 26
+    aspectRatio: 1,
+    width: '80%',
+    margin: 20
   }
 })

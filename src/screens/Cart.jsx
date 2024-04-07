@@ -9,6 +9,7 @@ import { usePostOrderMutation } from '../app/services/orders'
 import { deleteCart } from '../features/cart/cartSlice'
 import fonts from '../utils/fonts'
 import Wrapper from '../components/Wrapper'
+import colors from '../utils/colors'
 
 const Cart = ({ navigation }) => {
 
@@ -49,8 +50,9 @@ const Cart = ({ navigation }) => {
               />
             </View>
             <View style={styles.container}>
-              <Text style={styles.text}>Total: ${cart.total}</Text>
+              <Text style={styles.text}>Total: ${cart.total.toFixed(2)}</Text>
               <ButtonPrimary
+                textStyle={styles.button}
                 title="Comprar"
                 onPress={() => setModalVisible(true)}
               />
@@ -72,13 +74,20 @@ export default Cart
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    gap: 30,
     margin: 20
   },
   text: {
-    fontFamily: fonts.RobotoBold,
-    fontSize: 20
+    fontFamily: fonts.RobotoRegular,
+    fontSize: 20,
+    color: '#fff'
   },
   listContainer: {
-    height: 400
+    height: 500
+  },
+  button: {
+    paddingHorizontal: 20,
+    fontSize: 20,
+    fontFamily: fonts.RobotoMedium
   }
 })

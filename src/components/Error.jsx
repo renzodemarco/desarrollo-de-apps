@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
     textAlign: 'center',
+    color: colors.primary
   },
 })
 
