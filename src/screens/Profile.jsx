@@ -45,7 +45,7 @@ const Profile = ({ navigation }) => {
       <ButtonPrimary
         title={"Cerrar sesión"}
         onPress={() => setModalVisible(true)}
-        buttonStyle={{ position: 'absolute', bottom: 140, width: 200, backgroundColor: colors.overlay}}
+        buttonStyle={{ marginTop: 60, backgroundColor: colors.overlay}}
         textStyle={{color: colors.primary}}
       />
       <ModalConfirm
