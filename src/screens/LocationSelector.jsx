@@ -28,8 +28,7 @@ const LocationSelector = ({ navigation }) => {
       const { status } = await Location.requestForegroundPermissionsAsync()
 
       if (status !== 'granted') {
-        setErrorMessage('Permisos denegados')
-        return
+        return navigation.navigate('Profile')
       }
 
       const { coords } = await Location.getCurrentPositionAsync()

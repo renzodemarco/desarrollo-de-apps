@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import fonts from '../utils/fonts'
+import colors from '../utils/colors'
 
 
 const InputForm = ({ label, value, onChangeText, isSecure, error }) => {
@@ -30,8 +31,9 @@ const styles = StyleSheet.create({
   input: {
     width: "90%",
     borderWidth: 0,
-    borderBottomWidth: 3,
-    borderBottomColor: "white",
+    borderBottomWidth: 1,
+    borderBottomColor: "#fff",
+    color: "#fff",
     padding: 2,
     fontFamily: fonts.RobotoMedium,
     fontSize: 14,
@@ -42,13 +44,13 @@ const styles = StyleSheet.create({
     width: "90%",
     marginHorizontal: "5%",
     fontSize: 16,
-    fontFamily: fonts.RobotoBold
+    fontFamily: fonts.RobotoBold,
+    color: colors.primary
   },
   error: {
     fontSize: 14,
     color: '#FFE9A1',
-    fontStyle: 'italic',
-    fontFamily: fonts.RobotoRegular,
+    fontFamily: fonts.RobotoLight,
     marginLeft: 10
   }
 })

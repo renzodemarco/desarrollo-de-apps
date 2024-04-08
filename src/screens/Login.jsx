@@ -63,9 +63,13 @@ const Login = ({ navigation }) => {
           isSecure={true}
           error={errorPassword}
         />
-        <ButtonPrimary onPress={onSubmit} title="Iniciar Sesión" />
+        <ButtonPrimary
+          onPress={onSubmit}
+          title="Iniciar Sesión"
+          buttonStyle={{ paddingHorizontal: 20 }}
+        />
         <Pressable onPress={() => navigation.navigate("Register")} >
-          <Text style={styles.sub}>No tengo una cuenta</Text>
+          <Text style={styles.sub}>¿No tienes una cuenta?</Text>
         </Pressable>
       </View>
     </Wrapper>
@@ -76,25 +80,21 @@ export default Login
 
 const styles = StyleSheet.create({
   main: {
-    paddingTop:'30%',
+    paddingTop: '30%',
     alignItems: "center"
   },
   container: {
     width: "90%",
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.overlay,
     gap: 15,
-    borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 20
   },
-  title: {
-    fontSize: 22,
-    fontFamily: fonts.RobotoMedium
-  },
   sub: {
     fontSize: 18,
-    fontFamily: fonts.RobotoBold,
-    color: colors.primary
+    fontFamily: fonts.RobotoRegular,
+    color: colors.primary,
+    marginTop: 8
   }
 })

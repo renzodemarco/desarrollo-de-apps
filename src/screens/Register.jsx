@@ -33,7 +33,7 @@ const Register = ({ navigation }) => {
       setModalVisible(true)
       setTimeout(() => {
         dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
-      }, 2000) 
+      }, 2000)
     }
     catch (error) {
       setErrorEmail('')
@@ -78,7 +78,11 @@ const Register = ({ navigation }) => {
           onChangeText={(t) => setConfirmPassword(t)}
           isSecure={true}
         />
-        <ButtonPrimary onPress={onSubmit} title="Registrarse" />
+        <ButtonPrimary
+          onPress={onSubmit}
+          title="Registrarse"
+          buttonStyle={{paddingHorizontal: 20}}
+        />
         <Pressable onPress={() => navigation.navigate("Login")} >
           <Text style={styles.sub}>Ya tengo una cuenta</Text>
         </Pressable>
@@ -95,14 +99,13 @@ export default Register
 
 const styles = StyleSheet.create({
   main: {
-    paddingTop:'30%',
+    paddingTop: '30%',
     alignItems: "center"
   },
   container: {
     width: "90%",
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.overlay,
     gap: 15,
-    borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 20
@@ -113,7 +116,8 @@ const styles = StyleSheet.create({
   },
   sub: {
     fontSize: 18,
-    fontFamily: fonts.RobotoBold,
-    color: colors.primary
+    fontFamily: fonts.RobotoRegular,
+    color: colors.primary,
+    marginTop: 8
   }
 })

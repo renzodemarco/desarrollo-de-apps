@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   image: {
     aspectRatio: 1,
-    width: '80%',
+    height: 360,
     margin: 20
   }
 })
