@@ -15,7 +15,7 @@ const ModalAlert = ({ text, onClose, modalVisible }) => {
       <View style={styles.container}>
         <View style={styles.content}>
           <Text style={styles.text}>{text}</Text>
-          <ButtonPrimary title='Aceptar' onPress={onClose} buttonStyle={{paddingHorizontal: 20}} />
+          {onClose ? <ButtonPrimary title='Aceptar' onPress={onClose} buttonStyle={{ paddingHorizontal: 20 }} /> : null}
         </View>
       </View>
     </Modal>
