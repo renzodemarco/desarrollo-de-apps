@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   },
   error: {
     fontSize: 14,
+    fontStyle: 'italic',
     color: '#FFE9A1',
     fontFamily: fonts.RobotoLight,
     marginLeft: 10
