@@ -15,7 +15,6 @@ const ShopStack = () => {
       screenOptions={({ route, navigation }) => {
         return {
           header: () => {
-            console.log(route.params?.title)
             return <Header
               navigation={navigation}
               title={route.params?.title === 'all' ? 'Todos' : route.params?.title || 'Inicio'} />
