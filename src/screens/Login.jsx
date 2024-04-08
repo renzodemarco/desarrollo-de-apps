@@ -25,8 +25,6 @@ const Login = ({ navigation }) => {
       loginSchema.validateSync({ email, password })
       const { data, error } = await triggerLogin({ email, password })
       if (error) return setErrorEmail('Email o contraseña inválidos')
-      await deleteSession()
-      await insertSession({ email: data.email, idToken: data.idToken, localId: data.localId })
       dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
     }
     catch (error) {

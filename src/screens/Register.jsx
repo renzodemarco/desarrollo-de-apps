@@ -28,8 +28,6 @@ const Register = ({ navigation }) => {
     try {
       registerSchema.validateSync({ email, password, confirmPassword })  // valido los inputs con YUP
       const { data } = await triggerRegister({ email, password })  // hago la peticion y espero la respuesta en data
-      await deleteSession()
-      await insertSession(data)
       setModalVisible(true)
       setTimeout(() => {
         dispatch(setUser({ email: data.email, idToken: data.idToken, localId: data.localId }))
