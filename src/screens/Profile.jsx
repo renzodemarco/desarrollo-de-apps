@@ -5,7 +5,6 @@ import ModalConfirm from '../components/ModalConfirm'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetImageQuery, useGetLocationQuery } from '../app/services/profile'
 import { clearUser } from '../features/auth/authSlice'
-import { deleteSession } from '../database'
 import Wrapper from '../components/Wrapper'
 import colors from '../utils/colors'
 
@@ -22,7 +21,6 @@ const Profile = ({ navigation }) => {
   }
 
   const handleLogout = async () => {
-    await deleteSession()
     dispatch(clearUser())
   }
 

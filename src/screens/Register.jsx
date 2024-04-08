@@ -9,7 +9,6 @@ import { useRegisterMutation } from '../app/services/auth'
 import colors from '../utils/colors'
 import fonts from '../utils/fonts'
 import { registerSchema } from '../utils/validations/authSchema'
-import { deleteSession, insertSession } from '../database'
 import Wrapper from '../components/Wrapper'
 
 

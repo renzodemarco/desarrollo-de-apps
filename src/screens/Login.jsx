@@ -8,7 +8,6 @@ import fonts from '../utils/fonts'
 import { useLoginMutation } from '../app/services/auth'
 import { setUser } from '../features/auth/authSlice'
 import { loginSchema } from '../utils/validations/authSchema'
-import { deleteSession, insertSession } from '../database'
 import Wrapper from '../components/Wrapper'
 
 const Login = ({ navigation }) => {
